@@ -1,62 +1,158 @@
 [
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image4_14310.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image4_14310.png"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image2_14304.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image2_14304.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image3_14306.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image3_14306.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image15_192287.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image15_192287.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image1_119196.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image1_119196.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image4_192232.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image4_192232.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/xml_data_extraction_rules.xml.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/xml/data_extraction_rules.xml"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image13_192277.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image13_192277.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image6_14352.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image6_14352.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image7_192241.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image7_192241.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image9_28108.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image9_28108.png"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image7_28106.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image7_28106.png"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image6_14352.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image6_14352.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/xml_backup_rules.xml.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image1_119196.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image1_119196.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image2_14304.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image2_14304.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image7_192262.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image7_192262.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image2_177230.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image2_177230.png"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image9_28108.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image9_28108.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image1_177229.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image1_177229.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image3_192230.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image3_192230.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image10_28109.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image10_28109.png"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image10_28109.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image10_28109.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image5_14350.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image5_14350.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image1_192222.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image1_192222.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image8_28107.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image8_28107.png"
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image1_192252.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image1_192252.png"
     },
     {
-        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_ic_launcher.png.flat",
-        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image1_177229.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image1_177229.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image5_192233.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image5_192233.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image8_192242.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image8_192242.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image4_192255.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image4_192255.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image11_192245.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image11_192245.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image2_192253.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image2_192253.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image5_192260.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image5_192260.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image12_192274.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image12_192274.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image8_192263.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image8_192263.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image4_14310.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image4_14310.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image14_192286.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image14_192286.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image16_192298.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image16_192298.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image2_177230.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image2_177230.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image7_28106.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image7_28106.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image3_14306.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image3_14306.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image6_192234.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image6_192234.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image9_192243.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image9_192243.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image3_192254.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image3_192254.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image6_192261.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image6_192261.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image5_14350.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image5_14350.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image10_192244.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image10_192244.png"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-merged_res-44:\\drawable-xxhdpi_image8_28107.png.flat",
+        "source": "C:\\Users\\minne\\.gradle\\daemon\\8.0\\ai.codia.x.composeui.demo.app-main-46:\\drawable-xxhdpi\\image8_28107.png"
+    },
+    {
+        "merged": "ai.codia.x.composeui.demo.app-merged_res-44:/drawable-xxhdpi_image2_192223.png.flat",
+        "source": "ai.codia.x.composeui.demo.app-main-46:/drawable-xxhdpi/image2_192223.png"
     }
 ]

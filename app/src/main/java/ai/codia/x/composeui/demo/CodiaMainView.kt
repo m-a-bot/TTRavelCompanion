@@ -76,8 +76,7 @@ fun CodiaMainView() {
                 .align(Alignment.TopStart)
                 .offset(x = -18.dp, y = 764.dp)
                 .background(Color(0x00d9d9d9))
-                .size(422.dp, 80.dp)
-                .border(1.dp, Color(0x6d000000)),
+                .size(422.dp, 80.dp),
         )
         // Image-14:304-search-01
         Image(
@@ -115,74 +114,20 @@ fun CodiaMainView() {
                 .background(Color(0xffffffff), RoundedCornerShape(5.dp))
                 .size(117.dp, 30.dp),
         )
-        // Text-14:308-Список
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 102.dp, y = 61.dp)
-                .size(62.dp, 23.dp),
-            text = "Список",
-            color = Color(0x87000000),
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Box-14:309-Status Bar
-        Box(
-            contentAlignment = Alignment.TopStart,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .fillMaxSize()
-                .padding(start = 0.dp, end = 0.dp, top = 2.dp, bottom = 788.dp),
-        ) {
-            // Box-I14:309;523:41289-Time
-            Box(
-                contentAlignment = Alignment.TopStart,
-                modifier = Modifier
-                    .align(Alignment.CenterStart)
-                    .size(140.5.dp, 54.dp),
-            ) {
-                // Text-I14:309;523:41290-Time
-                Text(
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .wrapContentSize()
-                        .offset(x = 51.924.dp, y = 18.34.dp),
-                    text = "9:41",
-                    color = Color(0xff000000),
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.Normal,
-                    textAlign = TextAlign.Center,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-            
-        }
-        // Image-14:310-Home Indicator
-        Image(
-            painter = painterResource(id = R.drawable.image4_14310),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.BottomStart)
-                .fillMaxWidth()
-                .padding(start = 0.dp, end = 0.dp)
-                .height(21.dp),
-        )
+
         // Text-14:311-Карта
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 223.dp, y = 61.dp),
-            text = "Карта",
-            color = Color(0x87000000),
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+//                .offset(x = 223.dp, y = 61.dp),
+//            text = "Карта",
+//            color = Color(0x87000000),
+//            fontSize = 17.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
         // Empty-14:312-Rectangle 4
         Box(
             modifier = Modifier
@@ -204,7 +149,7 @@ fun CodiaMainView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 102.dp, y = 61.dp)
-                .size(62.dp, 23.dp),
+                .size(70.dp, 23.dp),
             text = "Список",
             color = Color(0x87000000),
             fontSize = 18.sp,
@@ -300,7 +245,7 @@ fun CodiaMainView() {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 74.dp, y = 52.dp)
+                .offset(x = 74.dp, y = 20.dp)
                 .background(Color(0x00ffffff))
                 .size(115.dp, 36.dp),
         )
@@ -360,13 +305,17 @@ fun CodiaMainView() {
                 textAlign = TextAlign.Left,
                 overflow = TextOverflow.Ellipsis,
             )
+            // ToDo
             // Empty-117:168-Arrow 1
-            Box(
+            Image(
+                painter = painterResource(id = R.drawable.image4_14310),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = 178.dp, y = 157.dp)
-                    .size(30.dp, 1.dp)
-                    .border(2.dp, Color(0xff000000)),
+                    .offset(x = 0.dp, y = 157.dp)
+                    .fillMaxWidth()
+                    .height(21.dp),
             )
         }
         // Text-117:169-Буинск, ул. Ефремова 123
@@ -374,21 +323,21 @@ fun CodiaMainView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 229.dp, y = 693.dp)
-                .size(245.dp, 32.dp),
-            text = "Буинск, ул. Ефремова 123",
+                .size(245.dp, 52.dp),
+            text = "Буинск,\nул. Ефремова 123",
             color = Color(0x91000000),
             fontSize = 15.sp,
             fontWeight = FontWeight.Normal,
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Text-14:355-Казань, ул. Кремлевская 35
+        // Text-14:355-Казань,ул. Кремлевская 35
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 14.dp, y = 694.dp)
-                .size(245.dp, 32.dp),
-            text = "Казань, ул. Кремлевская 35",
+                .size(245.dp, 52.dp),
+            text = "Казань,\nул. Кремлевская 35",
             color = Color(0x91000000),
             fontSize = 15.sp,
             fontWeight = FontWeight.Normal,
@@ -413,8 +362,7 @@ fun CodiaMainView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 222.dp, y = 777.dp)
-                .size(35.dp, 29.dp)
-                .border(2.dp, Color(0xff009b3a)),
+                .size(35.dp, 29.dp),
         )
         // Image-28:108-user-profile-circle
         Image(
