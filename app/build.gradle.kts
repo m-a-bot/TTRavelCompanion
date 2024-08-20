@@ -61,6 +61,15 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.appcompat:appcompat:1.7.0")
+
+    // SLF4J API
+    implementation("org.slf4j:slf4j-api:1.7.36")
+    // Реализация логгера, например, для Logback
+    implementation("ch.qos.logback:logback-classic:1.2.11")
+
+    implementation("org.mongodb:mongodb-driver-sync:4.9.1")
+
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
