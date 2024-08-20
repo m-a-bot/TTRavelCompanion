@@ -7,6 +7,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">CodiaDemoComposeUI</string>
+    <string name="app_name">TTravelCompanion</string>
     <style name="Theme.CodiaDemoComposeUI" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>

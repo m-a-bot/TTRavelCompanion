@@ -8,21 +8,39 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DateRange
+
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
+
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -33,13 +51,32 @@ import androidx.compose.ui.unit.sp
 /**
  * Created by codia-figma
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreenForPassengerView() {
+
+    var text by rememberSaveable { mutableStateOf("") }
+    var text1 by rememberSaveable { mutableStateOf("") }
+
+    val myIcon: Painter = painterResource(id = R.drawable.image12_192274)
+    val myIcon1: Painter = painterResource(id = R.drawable.image3_196527)
+    val myIcon2: Painter = painterResource(id = R.drawable.image14_192286)
+    val myIcon3: Painter = painterResource(id = R.drawable.image15_192287)
+
+    val textFieldColors = TextFieldDefaults.textFieldColors(
+        containerColor = Color(0xffe8e8e8),  // Цвет фона TextField
+        focusedIndicatorColor = Color.Green,  // Цвет индикатора при фокусе
+        unfocusedIndicatorColor = Color.Black,  // Цвет индикатора без фокуса
+    )
+    val buttonColors = ButtonDefaults.buttonColors(
+        containerColor = Color(0xff009b3a),  // Цвет фона
+        contentColor = Color.White
+    )
     // Box-192:195-1 Главный экран для пассажира
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
-            .background(Color(0xffffffff), RoundedCornerShape(40.dp))
+            .background(Color(0xffffffff), RoundedCornerShape(0.dp))
             .size(390.dp, 844.dp)
             .clip(RoundedCornerShape(40.dp)),
     ) {
@@ -293,28 +330,48 @@ fun MainScreenForPassengerView() {
                 .size(30.dp, 30.dp),
         )
         // Image-192:245-1 left choose
-        Image(
-            painter = painterResource(id = R.drawable.image11_192245),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
+//        Image(
+//            painter = painterResource(id = R.drawable.image11_192245),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 93.dp, y = 680.dp)
+//                .size(233.dp, 34.dp),
+//        )
+        Button(
+            onClick = { /*TODO*/ },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 93.dp, y = 680.dp)
-                .size(233.dp, 34.dp),
-        )
+                .offset(x = 96.dp, y = 682.dp)
+                .size(115.dp, 31.dp),
+            shape = RoundedCornerShape(5.dp)
+        ) {
+            Text("Пассажир")
+        }
         // Text-192:250-Пассажир
-        Text(
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 106.dp, y = 685.dp)
+//                .size(96.dp, 24.dp),
+//            text = "Пассажир",
+//            color = Color(0xff000000),
+//            fontSize = 18.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+        Button(
+            onClick = { /*TODO*/ },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 106.dp, y = 685.dp)
-                .size(96.dp, 24.dp),
-            text = "Пассажир",
-            color = Color(0xff000000),
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+                .offset(x = 212.dp, y = 682.dp)
+                .size(115.dp, 31.dp),
+            shape = RoundedCornerShape(5.dp)
+        ) {
+            Text("Водитель")
+        }
         // Box-192:251-bottom
         Box(
             contentAlignment = Alignment.TopStart,
@@ -324,45 +381,7 @@ fun MainScreenForPassengerView() {
                 .size(321.dp, 57.dp),
         ) {
             // Image-192:252-wallet-02
-            Image(
-                painter = painterResource(id = R.drawable.image1_192252),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 97.dp, y = 2.dp)
-                    .size(35.dp, 29.dp),
-            )
-            // Image-192:253-Icon
-            Image(
-                painter = painterResource(id = R.drawable.image2_192253),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 188.dp, y = 5.dp)
-                    .size(35.dp, 29.dp)
-            )
-            // Image-192:254-user-profile-circle
-            Image(
-                painter = painterResource(id = R.drawable.image3_192254),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 6.dp, y = 0.dp)
-                    .size(35.dp, 35.dp),
-            )
-            // Image-192:255-message-alert-circle
-            Image(
-                painter = painterResource(id = R.drawable.image4_192255),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 279.dp, y = 1.dp)
-                    .size(35.dp, 33.939.dp),
-            )
+
             // Text-192:256-Главная
             Text(
                 modifier = Modifier
@@ -509,18 +528,18 @@ fun MainScreenForPassengerView() {
             )
         }
         // Text-192:268-Водитель
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 223.dp, y = 686.dp),
-            text = "Водитель",
-            color = Color(0x87000000),
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+//                .offset(x = 223.dp, y = 686.dp),
+//            text = "Водитель",
+//            color = Color(0x87000000),
+//            fontSize = 18.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
         // Empty-192:269-Rectangle 54
         Box(
             modifier = Modifier
@@ -530,150 +549,236 @@ fun MainScreenForPassengerView() {
                 .size(330.dp, 338.dp),
         )
         // Empty-192:270-Line 24
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 382.dp)
-                .size(330.dp, 1.dp)
-                .border(1.dp, Color(0xff000000)),
-        )
-        // Empty-192:271-Line 25
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 45.dp, y = 307.dp)
-                .size(329.dp, 1.dp)
-                .border(1.dp, Color(0xff000000)),
-        )
-        // Empty-192:272-Line 26
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 47.dp, y = 235.dp)
-                .size(327.dp, 1.dp)
-                .border(1.dp, Color(0xff000000)),
-        )
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 44.dp, y = 382.dp)
+//                .size(330.dp, 1.dp)
+//                .border(1.dp, Color(0xff000000)),
+//        )
+//        // Empty-192:271-Line 25
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 45.dp, y = 307.dp)
+//                .size(329.dp, 1.dp)
+//                .border(1.dp, Color(0xff000000)),
+//        )
+//        // Empty-192:272-Line 26
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 47.dp, y = 235.dp)
+//                .size(327.dp, 1.dp)
+//                .border(1.dp, Color(0xff000000)),
+//        )
         // Empty-192:273-Rectangle 55
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 457.dp)
-                .background(Color(0xff009b3a), RoundedCornerShape(23.dp))
-                .size(330.dp, 61.dp),
-        )
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 44.dp, y = 457.dp)
+//                .background(Color(0xff009b3a), RoundedCornerShape(23.dp))
+//                .size(330.dp, 61.dp),
+//        )
         // Image-192:274-1 radio active
-        Image(
-            painter = painterResource(id = R.drawable.image12_192274),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 57.dp, y = 194.dp)
-                .size(25.dp, 25.dp),
-        )
-        // Image-192:277-1 radio inactive
-        Image(
-            painter = painterResource(id = R.drawable.image13_192277),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 57.dp, y = 258.dp)
-                .size(25.dp, 25.dp),
-        )
-        // Empty-192:280-Rectangle 56
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 446.dp)
-                .background(Color(0xff009b3a))
-                .size(330.dp, 46.dp),
-        )
+//        Image(
+//            painter = painterResource(id = R.drawable.image12_192274),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 57.dp, y = 194.dp)
+//                .size(25.dp, 25.dp),
+//        )
+//        // Image-192:277-1 radio inactive
+//        Image(
+//            painter = painterResource(id = R.drawable.image13_192277),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 57.dp, y = 258.dp)
+//                .size(25.dp, 25.dp),
+//        )
+//        // Empty-192:280-Rectangle 56
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 44.dp, y = 446.dp)
+//                .background(Color(0xff009b3a))
+//                .size(330.dp, 46.dp),
+//        )
         // Text-192:281-Найти водителя
-        Text(
+        Button(
+            onClick = {},
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 121.dp, y = 469.dp)
-                .size(172.dp, 27.dp),
-            text = "Найти водителя",
-            color = Color(0xffffffff),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
+                .offset(x = 45.dp, y = 449.dp)
+                .size(330.dp, 70.dp),
+            shape = RoundedCornerShape(0.dp, 0.dp, 16.dp, 16.dp),
+            colors = buttonColors
         )
+        {
+            Text(
+                text = "Найти водителя",
+            )
+        }
+
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 121.dp, y = 469.dp)
+//                .size(172.dp, 27.dp),
+//            text = "Найти водителя",
+//            color = Color(0xffffffff),
+//            fontSize = 20.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
         // Text-192:282-Откуда
-        Text(
+
+        
+        TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 99.dp, y = 191.dp)
-                .size(82.dp, 38.dp),
-            text = "Откуда",
-            color = Color(0xa3000000),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
+                .offset(x = 45.dp, y = 175.dp)
+                .size(330.dp, 70.dp),
+            value = text,
+            leadingIcon = {
+                Image(
+                    painter = myIcon,
+                    contentDescription = null,
+                )
+            },
+            onValueChange = { text = it },
+            placeholder = { Text("Откуда") },
+            singleLine = true,
+            textStyle = TextStyle(
+                fontSize = 24.sp,
+                color = Color.DarkGray
+            ),
+            colors = textFieldColors,
+            shape = RoundedCornerShape(16.dp, 16.dp, 0.dp, 0.dp),
         )
         // Text-192:283-К
-        Text(
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 99.dp, y = 255.dp)
+//                .size(55.dp, 37.dp),
+//            text = "Куда",
+//            color = Color(0xa3000000),
+//            fontSize = 20.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Left,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+        TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 99.dp, y = 255.dp)
-                .size(55.dp, 37.dp),
-            text = "Куда",
-            color = Color(0xa3000000),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
+                .offset(x = 45.dp, y = 255.dp)
+                .size(330.dp, 54.dp),
+            value = text1,
+            leadingIcon = {
+                Image(
+                    painter = myIcon1,
+                    contentDescription = null,
+                )
+            },
+            onValueChange = { text1 = it },
+            placeholder = { Text("Куда") },
+            singleLine = true,
+            textStyle = TextStyle(
+                fontSize = 24.sp,
+                color = Color.DarkGray
+            ),
+            colors = textFieldColors,
         )
         // Text-192:284-К
-        Text(
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 99.dp, y = 327.dp)
+//                .size(95.dp, 38.dp),
+//            text = "Сегодня",
+//            color = Color(0xa3000000),
+//            fontSize = 20.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Left,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+        TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 99.dp, y = 327.dp)
-                .size(95.dp, 38.dp),
-            text = "Сегодня",
-            color = Color(0xa3000000),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
+                .offset(x = 45.dp, y = 320.dp)
+                .size(330.dp, 54.dp),
+            value = text1,
+            leadingIcon = {
+                Icon(Icons.Filled.DateRange, contentDescription = "Calendar") },
+            onValueChange = { text1 = it },
+            placeholder = { Text("Сегодня") },
+            singleLine = true,
+            textStyle = TextStyle(
+                fontSize = 24.sp,
+                color = Color.DarkGray
+            ),
+            colors = textFieldColors,
         )
         // Text-192:285-К
-        Text(
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 99.dp, y = 399.dp)
+//                .size(9.dp, 38.dp),
+//            text = "1",
+//            color = Color(0xa3000000),
+//            fontSize = 20.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Left,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+        TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 99.dp, y = 399.dp)
-                .size(9.dp, 38.dp),
-            text = "1",
-            color = Color(0xa3000000),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
+                .offset(x = 45.dp, y = 385.dp)
+                .size(330.dp, 54.dp),
+            value = text1,
+            leadingIcon = {
+                Image(
+                    painter = myIcon3,
+                    contentDescription = null,
+                )},
+//                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
+            onValueChange = { text1 = it },
+            placeholder = { Text("1") },
+            textStyle = TextStyle(
+                fontSize = 24.sp,
+                color = Color.DarkGray
+            ),
+            colors = textFieldColors,
+            singleLine = true,
         )
         // Image-192:286-1 calendar
-        Image(
-            painter = painterResource(id = R.drawable.image14_192286),
-            contentDescription = null,
-            contentScale = ContentScale.FillBounds,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 57.dp, y = 328.dp)
-                .size(25.dp, 25.dp),
-        )
+//        Image(
+//            painter = painterResource(id = R.drawable.image14_192286),
+//            contentDescription = null,
+//            contentScale = ContentScale.FillBounds,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 57.dp, y = 328.dp)
+//                .size(25.dp, 25.dp),
+//        )
         // Image-192:287-1 person
-        Image(
-            painter = painterResource(id = R.drawable.image15_192287),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 51.dp, y = 396.dp)
-                .size(36.dp, 36.dp),
-        )
+//        Image(
+//            painter = painterResource(id = R.drawable.image15_192287),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 51.dp, y = 396.dp)
+//                .size(36.dp, 36.dp),
+//        )
         // Image-192:298-1 photo
         Image(
             painter = painterResource(id = R.drawable.image16_192298),

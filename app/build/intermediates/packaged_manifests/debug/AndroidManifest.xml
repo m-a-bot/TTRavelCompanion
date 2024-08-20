@@ -36,7 +36,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.CodiaDemoComposeUI" >
         <activity
-            android:name="ai.codia.x.composeui.demo.MainActivity"
+            android:name="ai.codia.x.composeui.demo.MainActivity1"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CodiaDemoComposeUI" >
@@ -47,10 +47,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="androidx.activity.ComponentActivity"
+            android:name="androidx.compose.ui.tooling.PreviewActivity"
             android:exported="true" />
         <activity
-            android:name="androidx.compose.ui.tooling.PreviewActivity"
+            android:name="androidx.activity.ComponentActivity"
             android:exported="true" />
 
         <meta-data
