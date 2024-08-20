@@ -34,6 +34,8 @@ class MainActivity1 : ComponentActivity() {
             }
         }
     }
+
+
 }
 
 @Preview(showBackground = true)

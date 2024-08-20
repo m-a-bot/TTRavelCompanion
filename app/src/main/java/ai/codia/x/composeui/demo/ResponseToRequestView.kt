@@ -291,7 +291,7 @@ fun ResponseToRequestView() {
                     modifier = Modifier
                         .align(Alignment.TopStart)
                         .offset(x = 12.dp, y = 0.dp)
-                        .size(30.dp, 17.dp),
+                        .size(55.dp, 17.dp),
                     text = "Алия",
                     color = Color(0xff000000),
                     fontSize = 12.sp,
@@ -363,9 +363,9 @@ fun ResponseToRequestView() {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 70.dp, y = 187.dp)
-                .size(269.dp, 35.dp),
-            text = "Пользователь Алия \n...",
+                .offset(x = 70.dp, y = 170.dp)
+                .size(269.dp, 55.dp),
+            text = "Пользователь Алия\n...",
             color = Color(0xff000000),
             fontSize = 20.sp,
             fontWeight = FontWeight.Normal,
@@ -425,7 +425,7 @@ fun ResponseToRequestView() {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 89.dp, y = 306.dp)
+                .offset(x = 90.dp, y = 310.dp)
                 .size(73.dp, 35.dp),
             text = "Алия",
             color = Color(0xff000000),
