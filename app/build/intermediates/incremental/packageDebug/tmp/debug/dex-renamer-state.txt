@@ -1,4 +1,4 @@
-#Tue Aug 20 21:25:30 MSK 2024
+#Tue Aug 20 21:51:52 MSK 2024
 base.0=C\:\\Users\\minne\\Downloads\\CodiaDemoComposeUI-20240817110716\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\minne\\Downloads\\CodiaDemoComposeUI-20240817110716\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\minne\\Downloads\\CodiaDemoComposeUI-20240817110716\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex

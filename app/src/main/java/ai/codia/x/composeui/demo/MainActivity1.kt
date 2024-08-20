@@ -28,7 +28,7 @@ class MainActivity1 : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                        MainScreenForPassengerView()
+                        MainScreenForDriverView()
                     }
                 }
             }

@@ -778,6 +778,7 @@ drawable image9_196700
 drawable image9_28108
 drawable image_196387
 drawable image_196390
+drawable image_2_photo
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low

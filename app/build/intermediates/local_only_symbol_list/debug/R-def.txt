@@ -107,6 +107,7 @@ drawable image9_196700
 drawable image9_28108
 drawable image_196387
 drawable image_196390
+drawable image_2_photo
 string app_name
 style Theme.CodiaDemoComposeUI
 xml backup_rules
