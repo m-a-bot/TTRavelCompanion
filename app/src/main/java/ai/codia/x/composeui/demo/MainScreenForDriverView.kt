@@ -53,7 +53,7 @@ import androidx.compose.ui.unit.sp
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenForPassengerView() {
+fun MainScreenForDriverView() {
 
     var text by rememberSaveable { mutableStateOf("") }
     var text1 by rememberSaveable { mutableStateOf("") }
@@ -620,7 +620,7 @@ fun MainScreenForPassengerView() {
         )
         {
             Text(
-                text = "Найти водителя",
+                text = "Найти пассажира",
             )
         }
 
@@ -638,7 +638,7 @@ fun MainScreenForPassengerView() {
 //        )
         // Text-192:282-Откуда
 
-        
+
         TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -781,7 +781,7 @@ fun MainScreenForPassengerView() {
 //        )
         // Image-192:298-1 photo
         Image(
-            painter = painterResource(id = R.drawable.image16_192298),
+            painter = painterResource(id = R.drawable.image_2_photo),
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
@@ -794,7 +794,7 @@ fun MainScreenForPassengerView() {
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenForPassengerViewPreview() {
+fun MainScreenForDriverViewPreview() {
     CodiaDemoComposeUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -802,7 +802,7 @@ fun MainScreenForPassengerViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                MainScreenForPassengerView()
+                MainScreenForDriverView()
             }
         }
     }

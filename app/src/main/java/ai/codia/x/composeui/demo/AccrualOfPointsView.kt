@@ -51,6 +51,7 @@ import androidx.compose.ui.unit.sp
  */
 @Composable
 fun AccrualOfPointsView() {
+    val name = "Максим";
     // Box-196:405-11 Начисление баллов
     Box(
         contentAlignment = Alignment.TopStart,
@@ -160,6 +161,7 @@ fun AccrualOfPointsView() {
                 .size(35.dp, 29.dp)
         )
         // Image-196:416-11 success
+        /*ToDo*/
         Image(
             painter = painterResource(id = R.drawable.image5_196416),
             contentDescription = null,
@@ -175,7 +177,7 @@ fun AccrualOfPointsView() {
                 .align(Alignment.TopStart)
                 .offset(x = 24.dp, y = 390.dp)
                 .size(346.dp, 141.dp),
-            text = "Максим, спасибо за поездку!\nБонусные баллы начислены на баланс\n",
+            text = String.format("%, спасибо за поездку!\nБонусные баллы начислены на баланс\n", name),
             color = Color(0xffffffff),
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,

@@ -17,6 +17,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CodiaDemoComposeUI"
+rootProject.name = "TTravelCompanion"
 include(":app")
  
