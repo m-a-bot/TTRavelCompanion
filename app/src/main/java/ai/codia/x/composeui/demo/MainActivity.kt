@@ -71,6 +71,16 @@ import com.yandex.mapkit.geometry.Point
 
 import com.yandex.runtime.image.ImageProvider
 
+
+import android.util.Log
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.sql.Connection
+import java.sql.DriverManager
+import java.sql.ResultSet
+
 //class ai.codia.x.composeui.demo.MainActivity : ComponentActivity() {
 //
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,7 +113,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         MapKitFactory.setApiKey("79ec8cd6-1510-43cd-991e-502eea9e6583")
         MapKitFactory.initialize(this)
-
+        connectToPostgres()
         setContent {
             CodiaDemoComposeUITheme {
                 // A surface container using the 'background' color from the theme
@@ -112,7 +122,6 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     YandexMapWithUI()
-
                 }
             }
         }
@@ -125,6 +134,42 @@ class MainActivity : ComponentActivity() {
     override fun onStop() {
         MapKitFactory.getInstance().onStop()
         super.onStop()
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    private fun connectToPostgres() {
+        // Запускаем в корутинах, чтобы не блокировать основной поток
+        kotlinx.coroutines.GlobalScope.launch {
+            try {
+                val url = "jdbc:postgresql://176.123.167.142:5432/ttraveldb"
+                val props = java.util.Properties()
+                props.setProperty("user", "postgres")
+                props.setProperty("password", "20021081")
+
+                // Создаем соединение
+                val conn: Connection = withContext(Dispatchers.IO) {
+                    DriverManager.getConnection(url, props)
+                }
+
+                // Выполняем запрос
+                val stmt = conn.createStatement()
+                val rs: ResultSet = stmt.executeQuery("SELECT * FROM cards")
+
+                // Обрабатываем результат
+                while (rs.next()) {
+                    val columnData = rs.getString("balance")
+                    Log.d("PostgreSQL", "Data: $columnData")
+                }
+
+                // Закрываем соединение
+                rs.close()
+                stmt.close()
+                conn.close()
+
+            } catch (e: Exception) {
+                Log.e("PostgreSQL", "Connection failed", e)
+            }
+        }
     }
 }
 
@@ -149,6 +194,13 @@ fun YandexMapWithUI() {
             modifier = Modifier.padding(16.dp),
             style = MaterialTheme.typography.headlineMedium
         )
+
+        Button(onClick = {
+            // Move the camera to a different location
+            cameraPosition = CameraPosition(Point(59.9342802, 30.3350986), 11.0f, 0.0f, 0.0f)
+        }) {
+            Text(text = "Move to Piter")
+        }
 
         // MapView as part of the Compose UI
         AndroidView(
