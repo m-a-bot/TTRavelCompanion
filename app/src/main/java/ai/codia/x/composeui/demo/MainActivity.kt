@@ -197,7 +197,7 @@ fun YandexMapWithUI() {
 
         Button(onClick = {
             // Move the camera to a different location
-            cameraPosition = CameraPosition(Point(59.9342802, 30.3350986), 11.0f, 0.0f, 0.0f)
+            cameraPosition = CameraPosition(Point(55.797203, 49.134085), 11.0f, 0.0f, 0.0f)
         }) {
             Text(text = "Move to Piter")
         }
