@@ -74,6 +74,7 @@ import com.yandex.runtime.image.ImageProvider
 
 import android.util.Log
 import androidx.compose.ui.Alignment
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -136,6 +137,11 @@ class MainActivity : ComponentActivity() {
                     {
                         MainScreenForPassengerView(navController, it)
                     }
+                    composable<ScreenC>
+                    {
+                        YandexMapWithUI(navController)
+                    }
+
                 }
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -195,13 +201,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun YandexMapWithUI() {
+fun YandexMapWithUI(navController: NavHostController) {
     val context = LocalContext.current
 
     // Control the camera position with state
     var cameraPosition by remember {
         mutableStateOf(
-            CameraPosition(Point(55.751244, 37.618423), 11.0f, 0.0f, 0.0f)
+            CameraPosition(Point(55.810835, 49.127887), 11.0f, 0.0f, 0.0f)
         )
     }
 
@@ -275,3 +281,7 @@ object ScreenA
 data class ScreenB(
     val id: Int
 )
+
+
+@Serializable
+object ScreenC

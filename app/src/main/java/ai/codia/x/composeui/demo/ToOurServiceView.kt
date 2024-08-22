@@ -323,6 +323,12 @@ fun ToOurServiceView(navController: NavHostController) {
             }) {
                 Text(text = "Go to screen B")
             }
+            Button(onClick = {
+                /*ToDo*/
+                navController.navigate(ScreenC)
+            }) {
+                Text(text = "Go to screen C")
+            }
         }
     }
 }
