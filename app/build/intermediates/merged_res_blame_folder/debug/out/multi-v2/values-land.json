@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-55:/values-land/values-land.xml",
+            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-64:/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\4a48d5814c062e6d35d5ca5f412a1da7\\transformed\\appcompat-1.7.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\9df03625f01cca5ea97226004ad3428c\\transformed\\appcompat-1.7.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

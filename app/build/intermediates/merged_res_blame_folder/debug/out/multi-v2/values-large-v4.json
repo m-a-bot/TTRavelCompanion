@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-55:/values-large-v4/values-large-v4.xml",
+            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-64:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\4a48d5814c062e6d35d5ca5f412a1da7\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\9df03625f01cca5ea97226004ad3428c\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

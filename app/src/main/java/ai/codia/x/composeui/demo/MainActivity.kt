@@ -73,10 +73,16 @@ import com.yandex.runtime.image.ImageProvider
 
 
 import android.util.Log
+import androidx.compose.ui.Alignment
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.Serializable
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.ResultSet
@@ -108,6 +114,8 @@ import java.sql.ResultSet
 //    }
 //}
 
+
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,13 +124,48 @@ class MainActivity : ComponentActivity() {
         connectToPostgres()
         setContent {
             CodiaDemoComposeUITheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    YandexMapWithUI()
+                val navController = rememberNavController()
+
+                NavHost(
+                    navController = navController,
+                    startDestination = ScreenA
+                ){
+                    composable<ScreenA> {
+                        Column(
+                            modifier = Modifier.fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Button(onClick = {
+                                /*ToDo*/
+                                navController.navigate(ScreenB(
+                                    name = null,
+                                    age = 25
+                                ))
+                            }) {
+                                Text(text = "Go to screen B")
+                            }
+                        }
+                    }
+                    composable<ScreenB>
+                    {
+                        val args = it.toRoute<ScreenB>()
+                        Column(
+                            modifier = Modifier.fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(text = "${args.name}, ${args.age} years old")
+                        }
+                    }
                 }
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    YandexMapWithUI()
+//                }
             }
         }
     }
@@ -245,3 +288,13 @@ fun YandexMapWithUI() {
         }
     }
 }
+
+@Serializable
+object ScreenA
+
+
+@Serializable
+data class ScreenB(
+    val name: String?,
+    val age: Int
+)
