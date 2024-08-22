@@ -115,7 +115,6 @@ import java.sql.ResultSet
 //}
 
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -131,32 +130,11 @@ class MainActivity : ComponentActivity() {
                     startDestination = ScreenA
                 ){
                     composable<ScreenA> {
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Button(onClick = {
-                                /*ToDo*/
-                                navController.navigate(ScreenB(
-                                    name = null,
-                                    age = 25
-                                ))
-                            }) {
-                                Text(text = "Go to screen B")
-                            }
-                        }
+                        ToOurServiceView(navController)
                     }
                     composable<ScreenB>
                     {
-                        val args = it.toRoute<ScreenB>()
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(text = "${args.name}, ${args.age} years old")
-                        }
+                        MainScreenForPassengerView(navController, it)
                     }
                 }
 //                // A surface container using the 'background' color from the theme
@@ -295,6 +273,5 @@ object ScreenA
 
 @Serializable
 data class ScreenB(
-    val name: String?,
-    val age: Int
+    val id: Int
 )

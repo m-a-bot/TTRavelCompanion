@@ -4,6 +4,7 @@ import ai.codia.x.composeui.demo.ui.theme.CodiaDemoComposeUITheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -47,13 +48,16 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
+import androidx.navigation.toRoute
 
 /**
  * Created by codia-figma
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenForPassengerView() {
+fun MainScreenForPassengerView(navController: NavHostController, navBackStack: NavBackStackEntry) {
 
     var text by rememberSaveable { mutableStateOf("") }
     var text1 by rememberSaveable { mutableStateOf("") }
@@ -72,6 +76,7 @@ fun MainScreenForPassengerView() {
         containerColor = Color(0xff009b3a),  // Цвет фона
         contentColor = Color.White
     )
+
     // Box-192:195-1 Главный экран для пассажира
     Box(
         contentAlignment = Alignment.TopStart,
@@ -80,6 +85,7 @@ fun MainScreenForPassengerView() {
             .size(390.dp, 844.dp)
             .clip(RoundedCornerShape(40.dp)),
     ) {
+
         // Empty-192:221-Rectangle 1
         Box(
             modifier = Modifier
@@ -789,21 +795,36 @@ fun MainScreenForPassengerView() {
                 .offset(x = 58.dp, y = 52.dp)
                 .size(295.dp, 123.dp),
         )
-    }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun MainScreenForPassengerViewPreview() {
-    CodiaDemoComposeUITheme {
-        Surface(
+        val args = navBackStack.toRoute<ScreenB>()
+        Column(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val scrollState = rememberScrollState()
-            Column(modifier = Modifier.verticalScroll(scrollState)) {
-                MainScreenForPassengerView()
+            Text(text = "${args.id}, user id")
+            Button(onClick = {
+                /*ToDo*/
+                navController.navigate(ScreenA)
+            }) {
+                Text(text = "Go to screen A")
             }
         }
     }
 }
+
+//@Preview(showBackground = true)
+//@Composable
+//fun MainScreenForPassengerViewPreview() {
+//    CodiaDemoComposeUITheme {
+//        Surface(
+//            modifier = Modifier.fillMaxSize(),
+//            color = MaterialTheme.colorScheme.background
+//        ) {
+//            val scrollState = rememberScrollState()
+//            Column(modifier = Modifier.verticalScroll(scrollState)) {
+//                MainScreenForPassengerView()
+//            }
+//        }
+//    }
+//}

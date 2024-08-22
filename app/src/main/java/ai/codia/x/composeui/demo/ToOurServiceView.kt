@@ -45,13 +45,16 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 
 /**
  * Created by codia-figma
  */
 @Composable
-fun ToOurServiceView() {
+fun ToOurServiceView(navController: NavHostController) {
     // Box-196:422-9 Переход на наш сервис
+
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
@@ -59,6 +62,7 @@ fun ToOurServiceView() {
             .size(390.dp, 844.dp)
             .clip(RoundedCornerShape(40.dp)),
     ) {
+
         // Image-196:423-9 zabota service
         Image(
             painter = painterResource(id = R.drawable.image1_196423),
@@ -305,21 +309,36 @@ fun ToOurServiceView() {
                 .offset(x = 23.dp, y = 516.dp)
                 .size(52.dp, 52.dp),
         )
-    }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun ToOurServiceViewPreview() {
-    CodiaDemoComposeUITheme {
-        Surface(
+        Column(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val scrollState = rememberScrollState()
-            Column(modifier = Modifier.verticalScroll(scrollState)) {
-                ToOurServiceView()
+            Button(onClick = {
+                /*ToDo*/
+                navController.navigate(ScreenB(
+                    34
+                ))
+            }) {
+                Text(text = "Go to screen B")
             }
         }
     }
 }
+
+//@Preview(showBackground = true)
+//@Composable
+//fun ToOurServiceViewPreview() {
+//    CodiaDemoComposeUITheme {
+//        Surface(
+//            modifier = Modifier.fillMaxSize(),
+//            color = MaterialTheme.colorScheme.background
+//        ) {
+//            val scrollState = rememberScrollState()
+//            Column(modifier = Modifier.verticalScroll(scrollState)) {
+//                ToOurServiceView(null)
+//            }
+//        }
+//    }
+//}
