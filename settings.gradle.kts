@@ -10,9 +10,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("http://maven.google.com/")
+                isAllowInsecureProtocol = true
+        }
+
     }
 }
 
-rootProject.name = "CodiaDemoComposeUI"
+rootProject.name = "TTravelCompanion"
 include(":app")
+
  

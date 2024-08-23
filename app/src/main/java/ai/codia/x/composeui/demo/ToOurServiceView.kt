@@ -45,13 +45,16 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 
 /**
  * Created by codia-figma
  */
 @Composable
-fun ToOurServiceView() {
+fun ToOurServiceView(navController: NavHostController?) {
     // Box-196:422-9 Переход на наш сервис
+
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
@@ -59,6 +62,7 @@ fun ToOurServiceView() {
             .size(390.dp, 844.dp)
             .clip(RoundedCornerShape(40.dp)),
     ) {
+
         // Image-196:423-9 zabota service
         Image(
             painter = painterResource(id = R.drawable.image1_196423),
@@ -186,8 +190,8 @@ fun ToOurServiceView() {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 23.dp, y = 87.dp)
-                .size(106.dp, 35.dp),
+                .offset(x = 7.dp, y = 87.dp)
+                .size(150.dp, 35.dp),
             text = "Мои карты",
             color = Color(0xff000000),
             fontSize = 20.sp,
@@ -199,8 +203,8 @@ fun ToOurServiceView() {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 23.dp, y = 231.dp)
-                .size(145.dp, 35.dp),
+                .offset(x = 15.dp, y = 231.dp)
+                .size(170.dp, 35.dp),
             text = "Детские карты",
             color = Color(0xff000000),
             fontSize = 20.sp,
@@ -213,7 +217,7 @@ fun ToOurServiceView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 23.dp, y = 464.dp)
-                .size(89.dp, 35.dp),
+                .size(95.dp, 45.dp),
             text = "Сервисы",
             color = Color(0xff000000),
             fontSize = 20.sp,
@@ -232,38 +236,54 @@ fun ToOurServiceView() {
                 .size(35.dp, 35.dp),
         )
         // Box-196:438-Group 1
-        Box(
-            contentAlignment = Alignment.TopStart,
+        Button(
+
+                onClick = {
+                    /*ToDo*/
+                    navController?.navigate(ScreenDriverView(
+                        34
+                    ))
+                },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 94.125.dp, y = 517.679.dp)
-                .size(249.875.dp, 48.665.dp),
+                .offset(x = 75.125.dp, y = 486.679.dp)
+                .size(290.875.dp, 77.665.dp)
+            ,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,  // Цвет фона
+
+            )
         ) {
-            // Text-196:439-TTRavel Companion
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .size(250.875.dp, 24.332.dp),
-                text = "TTRavel Companion",
-                color = Color(0xba000000),
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Left,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-196:440-Описание
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 0.dp, y = 28.076.dp)
-                    .size(172.262.dp, 20.589.dp),
-                text = "Описание",
-                color = Color(0xff8d8d8d),
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Left,
-                overflow = TextOverflow.Ellipsis,
-            )
+            Box(
+                contentAlignment = Alignment.TopStart
+
+            ) {
+                // Text-196:439-TTRavel Companion
+                Text(
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .size(280.875.dp, 24.332.dp),
+                    text = "TTRavel",
+                    color = Color(0xba000000),
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Left,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                // Text-196:440-Описание
+                Text(
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .offset(x = 0.dp, y = 32.076.dp)
+                        .size(172.262.dp, 20.589.dp),
+                    text = "Поиск попутчиков",
+                    color = Color(0xff8d8d8d),
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    textAlign = TextAlign.Left,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
         }
         // Image-196:441-9 obrkarta service
         Image(
@@ -305,6 +325,8 @@ fun ToOurServiceView() {
                 .offset(x = 23.dp, y = 516.dp)
                 .size(52.dp, 52.dp),
         )
+
+
     }
 }
 
@@ -318,7 +340,7 @@ fun ToOurServiceViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                ToOurServiceView()
+                ToOurServiceView(null)
             }
         }
     }
