@@ -57,10 +57,12 @@ import androidx.navigation.toRoute
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenForPassengerView(navController: NavHostController, navBackStack: NavBackStackEntry) {
+fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: NavBackStackEntry?) {
 
-    var text by rememberSaveable { mutableStateOf("") }
-    var text1 by rememberSaveable { mutableStateOf("") }
+    var place_departure by rememberSaveable { mutableStateOf("") }
+    var place_arrival by rememberSaveable { mutableStateOf("") }
+    var time by rememberSaveable { mutableStateOf("") }
+    var number_passengers by rememberSaveable { mutableStateOf("") }
 
     val myIcon: Painter = painterResource(id = R.drawable.image12_192274)
     val myIcon1: Painter = painterResource(id = R.drawable.image3_196527)
@@ -349,9 +351,11 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
             onClick = { /*TODO*/ },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 96.dp, y = 682.dp)
-                .size(115.dp, 31.dp),
-            shape = RoundedCornerShape(5.dp)
+                .offset(x = 87.dp, y = 682.dp)
+                .size(120.dp, 35.dp),
+            shape = RoundedCornerShape(5.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray,
+            )
         ) {
             Text("Пассажир")
         }
@@ -369,12 +373,15 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
 //            overflow = TextOverflow.Ellipsis,
 //        )
         Button(
-            onClick = { /*TODO*/ },
+            onClick = {  navController?.navigate(ScreenDriverView(
+                34
+            )) },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 212.dp, y = 682.dp)
-                .size(115.dp, 31.dp),
-            shape = RoundedCornerShape(5.dp)
+                .offset(x = 213.dp, y = 682.dp)
+                .size(120.dp, 35.dp),
+            shape = RoundedCornerShape(5.dp),
+
         ) {
             Text("Водитель")
         }
@@ -644,20 +651,20 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
 //        )
         // Text-192:282-Откуда
 
-        
+
         TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 175.dp)
                 .size(330.dp, 70.dp),
-            value = text,
+            value = place_departure,
             leadingIcon = {
                 Image(
                     painter = myIcon,
                     contentDescription = null,
                 )
             },
-            onValueChange = { text = it },
+            onValueChange = { place_departure = it },
             placeholder = { Text("Откуда") },
             singleLine = true,
             textStyle = TextStyle(
@@ -685,14 +692,14 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 255.dp)
                 .size(330.dp, 54.dp),
-            value = text1,
+            value = place_arrival,
             leadingIcon = {
                 Image(
                     painter = myIcon1,
                     contentDescription = null,
                 )
             },
-            onValueChange = { text1 = it },
+            onValueChange = { place_arrival = it },
             placeholder = { Text("Куда") },
             singleLine = true,
             textStyle = TextStyle(
@@ -719,10 +726,10 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 320.dp)
                 .size(330.dp, 54.dp),
-            value = text1,
+            value = time,
             leadingIcon = {
                 Icon(Icons.Filled.DateRange, contentDescription = "Calendar") },
-            onValueChange = { text1 = it },
+            onValueChange = { time = it },
             placeholder = { Text("Сегодня") },
             singleLine = true,
             textStyle = TextStyle(
@@ -749,14 +756,14 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 385.dp)
                 .size(330.dp, 54.dp),
-            value = text1,
+            value = number_passengers,
             leadingIcon = {
                 Image(
                     painter = myIcon3,
                     contentDescription = null,
                 )},
 //                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
-            onValueChange = { text1 = it },
+            onValueChange = { number_passengers = it },
             placeholder = { Text("1") },
             textStyle = TextStyle(
                 fontSize = 24.sp,
@@ -796,35 +803,35 @@ fun MainScreenForPassengerView(navController: NavHostController, navBackStack: N
                 .size(295.dp, 123.dp),
         )
 
-        val args = navBackStack.toRoute<ScreenB>()
-        Column(
+//        val args = navBackStack?.toRoute<ScreenB>()
+//        Column(
+//            modifier = Modifier.fillMaxSize(),
+//            verticalArrangement = Arrangement.Center,
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        ) {
+//            Text(text = "${args.id}, user id")
+//            Button(onClick = {
+//                /*ToDo*/
+//                navController?.navigate(ScreenA)
+//            }) {
+//                Text(text = "Go to screen A")
+//            }
+//        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainScreenForPassengerViewPreview() {
+    CodiaDemoComposeUITheme {
+        Surface(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            color = MaterialTheme.colorScheme.background
         ) {
-            Text(text = "${args.id}, user id")
-            Button(onClick = {
-                /*ToDo*/
-                navController.navigate(ScreenA)
-            }) {
-                Text(text = "Go to screen A")
+            val scrollState = rememberScrollState()
+            Column(modifier = Modifier.verticalScroll(scrollState)) {
+                MainScreenForPassengerView(null, null)
             }
         }
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun MainScreenForPassengerViewPreview() {
-//    CodiaDemoComposeUITheme {
-//        Surface(
-//            modifier = Modifier.fillMaxSize(),
-//            color = MaterialTheme.colorScheme.background
-//        ) {
-//            val scrollState = rememberScrollState()
-//            Column(modifier = Modifier.verticalScroll(scrollState)) {
-//                MainScreenForPassengerView()
-//            }
-//        }
-//    }
-//}

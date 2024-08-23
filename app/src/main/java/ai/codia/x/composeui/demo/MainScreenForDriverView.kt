@@ -47,16 +47,19 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
 /**
  * Created by codia-figma
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenForDriverView() {
+fun MainScreenForDriverView(navController: NavHostController?, navBackStack: NavBackStackEntry?) {
 
     var text by rememberSaveable { mutableStateOf("") }
     var text1 by rememberSaveable { mutableStateOf("") }
+    var text2 by rememberSaveable { mutableStateOf("") }
+    var text3 by rememberSaveable { mutableStateOf("") }
 
     val myIcon: Painter = painterResource(id = R.drawable.image12_192274)
     val myIcon1: Painter = painterResource(id = R.drawable.image3_196527)
@@ -277,6 +280,8 @@ fun MainScreenForDriverView() {
             overflow = TextOverflow.Ellipsis,
         )
         // Text-192:240-К
+
+
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -340,13 +345,17 @@ fun MainScreenForDriverView() {
 //                .size(233.dp, 34.dp),
 //        )
         Button(
-            onClick = { /*TODO*/ },
+            onClick = {  navController?.navigate(ScreenPassengerView(
+                34
+            )) },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 96.dp, y = 682.dp)
-                .size(115.dp, 31.dp),
-            shape = RoundedCornerShape(5.dp)
-        ) {
+                .offset(x = 92.dp, y = 682.dp)
+                .size(120.dp, 35.dp),
+
+            shape = RoundedCornerShape(5.dp),
+            )
+            {
             Text("Пассажир")
         }
         // Text-192:250-Пассажир
@@ -367,8 +376,11 @@ fun MainScreenForDriverView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 212.dp, y = 682.dp)
-                .size(115.dp, 31.dp),
-            shape = RoundedCornerShape(5.dp)
+                .size(120.dp, 35.dp),
+            shape = RoundedCornerShape(5.dp),
+            colors = ButtonDefaults.buttonColors(
+            containerColor = Color.LightGray,
+            )
         ) {
             Text("Водитель")
         }
@@ -713,10 +725,10 @@ fun MainScreenForDriverView() {
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 320.dp)
                 .size(330.dp, 54.dp),
-            value = text1,
+            value = text2,
             leadingIcon = {
                 Icon(Icons.Filled.DateRange, contentDescription = "Calendar") },
-            onValueChange = { text1 = it },
+            onValueChange = { text2 = it },
             placeholder = { Text("Сегодня") },
             singleLine = true,
             textStyle = TextStyle(
@@ -743,14 +755,14 @@ fun MainScreenForDriverView() {
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 385.dp)
                 .size(330.dp, 54.dp),
-            value = text1,
+            value = text3,
             leadingIcon = {
                 Image(
                     painter = myIcon3,
                     contentDescription = null,
                 )},
 //                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
-            onValueChange = { text1 = it },
+            onValueChange = { text3 = it },
             placeholder = { Text("1") },
             textStyle = TextStyle(
                 fontSize = 24.sp,
@@ -802,7 +814,7 @@ fun MainScreenForDriverViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                MainScreenForDriverView()
+                MainScreenForDriverView(null, null)
             }
         }
     }

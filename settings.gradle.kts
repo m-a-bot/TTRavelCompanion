@@ -19,4 +19,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "TTravelCompanion"
 include(":app")
+
  

@@ -133,13 +133,18 @@ class MainActivity : ComponentActivity() {
                     composable<ScreenA> {
                         ToOurServiceView(navController)
                     }
-                    composable<ScreenB>
+                    composable<ScreenPassengerView>
                     {
                         MainScreenForPassengerView(navController, it)
                     }
                     composable<ScreenC>
                     {
                         YandexMapWithUI(navController)
+                    }
+
+                    composable<ScreenDriverView>
+                    {
+                        MainScreenForDriverView(navController, it)
                     }
 
                 }
@@ -278,10 +283,15 @@ object ScreenA
 
 
 @Serializable
-data class ScreenB(
+data class ScreenPassengerView(
     val id: Int
 )
 
 
 @Serializable
 object ScreenC
+
+@Serializable
+data class ScreenDriverView(
+    val id: Int
+)
