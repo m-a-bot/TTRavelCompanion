@@ -56,10 +56,10 @@ import androidx.navigation.NavHostController
 @Composable
 fun MainScreenForDriverView(navController: NavHostController?, navBackStack: NavBackStackEntry?) {
 
-    var text by rememberSaveable { mutableStateOf("") }
-    var text1 by rememberSaveable { mutableStateOf("") }
-    var text2 by rememberSaveable { mutableStateOf("") }
-    var text3 by rememberSaveable { mutableStateOf("") }
+    var place_departure by rememberSaveable { mutableStateOf("") }
+    var place_arrival by rememberSaveable { mutableStateOf("") }
+    var time by rememberSaveable { mutableStateOf("") }
+    var number_passengers by rememberSaveable { mutableStateOf("") }
 
     val myIcon: Painter = painterResource(id = R.drawable.image12_192274)
     val myIcon1: Painter = painterResource(id = R.drawable.image3_196527)
@@ -656,14 +656,14 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 175.dp)
                 .size(330.dp, 70.dp),
-            value = text,
+            value = place_departure,
             leadingIcon = {
                 Image(
                     painter = myIcon,
                     contentDescription = null,
                 )
             },
-            onValueChange = { text = it },
+            onValueChange = { place_departure = it },
             placeholder = { Text("Откуда") },
             singleLine = true,
             textStyle = TextStyle(
@@ -691,14 +691,14 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 255.dp)
                 .size(330.dp, 54.dp),
-            value = text1,
+            value = place_arrival,
             leadingIcon = {
                 Image(
                     painter = myIcon1,
                     contentDescription = null,
                 )
             },
-            onValueChange = { text1 = it },
+            onValueChange = { place_arrival = it },
             placeholder = { Text("Куда") },
             singleLine = true,
             textStyle = TextStyle(
@@ -725,10 +725,10 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 320.dp)
                 .size(330.dp, 54.dp),
-            value = text2,
+            value = time,
             leadingIcon = {
                 Icon(Icons.Filled.DateRange, contentDescription = "Calendar") },
-            onValueChange = { text2 = it },
+            onValueChange = { time = it },
             placeholder = { Text("Сегодня") },
             singleLine = true,
             textStyle = TextStyle(
@@ -755,14 +755,14 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 385.dp)
                 .size(330.dp, 54.dp),
-            value = text3,
+            value = number_passengers,
             leadingIcon = {
                 Image(
                     painter = myIcon3,
                     contentDescription = null,
                 )},
 //                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
-            onValueChange = { text3 = it },
+            onValueChange = { number_passengers = it },
             placeholder = { Text("1") },
             textStyle = TextStyle(
                 fontSize = 24.sp,

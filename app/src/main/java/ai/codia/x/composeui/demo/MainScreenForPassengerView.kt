@@ -59,6 +59,9 @@ import androidx.navigation.toRoute
 @Composable
 fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: NavBackStackEntry?) {
 
+    val id_user: Int = 1
+    val id_route: Int = 1
+
     var place_departure by rememberSaveable { mutableStateOf("") }
     var place_arrival by rememberSaveable { mutableStateOf("") }
     var time by rememberSaveable { mutableStateOf("") }
@@ -623,7 +626,11 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
 //        )
         // Text-192:281-Найти водителя
         Button(
-            onClick = {},
+            onClick = {
+                navController?.navigate(ScreenListOfPeople(
+                    id_user, id_route
+                ))
+            },
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 449.dp)

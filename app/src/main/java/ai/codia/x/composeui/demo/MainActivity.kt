@@ -147,6 +147,10 @@ class MainActivity : ComponentActivity() {
                         MainScreenForDriverView(navController, it)
                     }
 
+                    composable<ScreenListOfPeople>
+                    {
+                        ListOfPeopleView(navController, it)
+                    }
                 }
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -294,4 +298,10 @@ object ScreenC
 @Serializable
 data class ScreenDriverView(
     val id: Int
+)
+
+@Serializable
+data class ScreenListOfPeople(
+    val id: Int,
+    val id_route: Int
 )
