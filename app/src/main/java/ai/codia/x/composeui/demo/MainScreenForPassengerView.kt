@@ -7,6 +7,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -357,6 +358,7 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .offset(x = 87.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
+            contentPadding = PaddingValues(0.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray,
             )
         ) {
@@ -384,7 +386,7 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .offset(x = 213.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
-
+            contentPadding = PaddingValues(0.dp),
         ) {
             Text("Водитель")
         }

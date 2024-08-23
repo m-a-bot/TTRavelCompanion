@@ -45,12 +45,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 /**
  * Created by codia-figma
  */
 @Composable
-fun AccrualOfPointsView() {
+fun AccrualOfPointsView(navController: NavHostController?) {
     val name = "Максим";
     // Box-196:405-11 Начисление баллов
     Box(
@@ -60,106 +61,13 @@ fun AccrualOfPointsView() {
             .size(390.dp, 844.dp)
             .clip(RoundedCornerShape(40.dp)),
     ) {
-        // Empty-196:406-Rectangle 1
+
         Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = -18.dp, y = 764.dp)
-                .background(Color(0x00d9d9d9))
-                .size(422.dp, 80.dp)
         )
-        // Image-196:407-wallet-02
-        Image(
-            painter = painterResource(id = R.drawable.image1_196407),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 134.dp, y = 772.dp)
-                .size(35.dp, 29.dp),
-        )
-        // Image-196:408-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image2_196408),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 43.dp, y = 770.dp)
-                .size(35.dp, 35.dp),
-        )
-        // Image-196:409-message-alert-circle
-        Image(
-            painter = painterResource(id = R.drawable.image3_196409),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 316.dp, y = 771.dp)
-                .size(35.dp, 33.939.dp),
-        )
-        // Text-196:410-Главная
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 37.dp, y = 805.dp),
-            text = "Главная",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:411-Платежи
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 126.dp, y = 805.dp),
-            text = "Платежи",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:412-Акции
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 225.dp, y = 805.dp),
-            text = "Акции",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:413-Новости
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 309.dp, y = 805.dp),
-            text = "Новости",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Image-196:415-Icon
-        Image(
-            painter = painterResource(id = R.drawable.image4_196415),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 225.dp, y = 775.dp)
-                .size(35.dp, 29.dp)
-        )
+        {
+            BottomBar(navController)
+        }
+
         // Image-196:416-11 success
         /*ToDo*/
         Image(
@@ -177,7 +85,7 @@ fun AccrualOfPointsView() {
                 .align(Alignment.TopStart)
                 .offset(x = 24.dp, y = 390.dp)
                 .size(346.dp, 141.dp),
-            text = String.format("%, спасибо за поездку!\nБонусные баллы начислены на баланс\n", name),
+            text = "Максим, спасибо за поездку!\nБонусные баллы начислены на баланс\n",
             color = Color(0xffffffff),
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
@@ -197,7 +105,7 @@ fun AccrualOfPointsViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                AccrualOfPointsView()
+                AccrualOfPointsView(null)
             }
         }
     }

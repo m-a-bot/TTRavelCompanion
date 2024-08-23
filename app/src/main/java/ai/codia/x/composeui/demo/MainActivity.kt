@@ -151,6 +151,20 @@ class MainActivity : ComponentActivity() {
                     {
                         ListOfPeopleView(navController, it)
                     }
+
+                    composable<ScreenDetailOfTrip>
+                    {
+                        HumanCardView(navController)
+                    }
+
+                    composable<ScreenDriversRequest>
+                    {
+                        DriverRequestView(navController)
+                    }
+                    composable<ScreenDriversResponse>
+                    {
+                        DriverResponseView(navController)
+                    }
                 }
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -305,3 +319,12 @@ data class ScreenListOfPeople(
     val id: Int,
     val id_route: Int
 )
+
+@Serializable
+object ScreenDetailOfTrip
+
+@Serializable
+object ScreenDriversRequest
+
+@Serializable
+object ScreenDriversResponse

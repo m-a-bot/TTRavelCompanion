@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -352,7 +353,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .align(Alignment.TopStart)
                 .offset(x = 92.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
-
+            contentPadding = PaddingValues(0.dp),
             shape = RoundedCornerShape(5.dp),
             )
             {
@@ -378,6 +379,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .offset(x = 212.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
+            contentPadding = PaddingValues(0.dp),
             colors = ButtonDefaults.buttonColors(
             containerColor = Color.LightGray,
             )

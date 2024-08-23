@@ -8,6 +8,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -85,6 +86,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
                     Row (
                         modifier = Modifier
                             .offset(y = (-5).dp)
+                            .padding(0.dp, 5.dp, 0.dp, 5.dp)
                     ){
                         Image(
                             painter = painterResource(id = R.drawable.image1_196673),
@@ -113,10 +115,16 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
                             .size(45.dp, 23.dp),
                             text = item.date_time)
 
-                        Button(onClick = { /*TODO*/ },
+                        Button(onClick = {
+                            navController?.navigate(
+                                ScreenDetailOfTrip
+                            )
+                        },
                             modifier = Modifier
-                                .size(80.dp, 50.dp),
-
+                                .offset(15.dp, 0.dp)
+                                .padding(0.dp)
+                                .size(50.dp, 50.dp),
+                            contentPadding = PaddingValues(5.dp),
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = Color.Transparent
                             ),
@@ -125,7 +133,6 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
                             Image(
                                 painter = painterResource(id = R.drawable.image10_196701),
                                 contentDescription = null,
-                                contentScale = ContentScale.Fit,
                                 modifier = Modifier
                                     .size(30.dp, 30.dp),
                             )

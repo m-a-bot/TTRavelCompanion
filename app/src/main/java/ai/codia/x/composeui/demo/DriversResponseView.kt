@@ -1,12 +1,15 @@
 package ai.codia.x.composeui.demo
 
 import ai.codia.x.composeui.demo.ui.theme.CodiaDemoComposeUITheme
+import android.annotation.SuppressLint
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,6 +41,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -45,12 +49,18 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Created by codia-figma
  */
+@SuppressLint("CoroutineCreationDuringComposition")
+@OptIn(DelicateCoroutinesApi::class)
 @Composable
-fun DriverResponseView() {
+fun DriverResponseView(navController: NavHostController?) {
     // Box-196:563-7 Ответ
     Box(
         contentAlignment = Alignment.TopStart,
@@ -196,99 +206,11 @@ fun DriverResponseView() {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Image-196:593-wallet-02
-        Image(
-            painter = painterResource(id = R.drawable.image5_196593),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 131.dp, y = 774.dp)
-                .size(35.dp, 29.dp),
+        Box(
         )
-        // Image-196:594-Icon
-        Image(
-            painter = painterResource(id = R.drawable.image6_196594),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 222.dp, y = 777.dp)
-                .size(35.dp, 29.dp)
-                .border(2.dp, Color(0xff009b3a)),
-        )
-        // Image-196:595-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image7_196595),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 40.dp, y = 772.dp)
-                .size(35.dp, 35.dp),
-        )
-        // Image-196:596-message-alert-circle
-        Image(
-            painter = painterResource(id = R.drawable.image8_196596),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 313.dp, y = 773.dp)
-                .size(35.dp, 33.939.dp),
-        )
-        // Text-196:597-Главная
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 34.dp, y = 807.dp),
-            text = "Главная",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:598-Платежи
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 123.dp, y = 807.dp),
-            text = "Платежи",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:599-Акции
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 222.dp, y = 807.dp),
-            text = "Акции",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:600-Новости
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 306.dp, y = 807.dp),
-            text = "Новости",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+        {
+            BottomBar(navController)
+        }
         // Empty-196:601-Rectangle 39
         Box(
             modifier = Modifier
@@ -311,35 +233,39 @@ fun DriverResponseView() {
             overflow = TextOverflow.Ellipsis,
         )
         // Box-196:604-7 cancel with red text
-        Box(
-            contentAlignment = Alignment.TopStart,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 105.dp, y = 710.dp)
-                .size(200.dp, 30.dp),
-        ) {
-            // Empty-196:605-7 cancel
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .background(Color(0xffffffff), RoundedCornerShape(5.dp))
-                    .size(200.dp, 29.dp)
-                    .border(1.dp, Color(0xff000000), RoundedCornerShape(5.dp)),
+
+        Button(onClick = {
+            navController?.navigate(
+                ScreenListOfPeople(
+                    1, 1
+                )
             )
-            // Text-196:606-Отменить
+        },
+            modifier = Modifier
+                .offset(135.dp, 700.dp)
+                .padding(0.dp)
+                .layoutId("button1")
+                .size(150.dp, 30.dp),
+            contentPadding = PaddingValues(0.dp),
+            border = BorderStroke(1.dp, Color.Red),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent
+            ),
+
+            ) {
             Text(
                 modifier = Modifier
-                    .align(Alignment.TopStart)
                     .wrapContentSize()
-                    .offset(x = 51.dp, y = 0.dp),
+                    .offset(x = 0.dp, y = 0.dp),
                 text = "Отменить",
-                color = Color(0xff8b0a0a),
+                color = Color(0xff820a0a),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center,
                 overflow = TextOverflow.Ellipsis,
             )
         }
+
         // Empty-196:607-Line 16
         Box(
             modifier = Modifier
@@ -398,7 +324,7 @@ fun DriverResponseView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 108.dp, y = 31.dp)
-                .size(62.dp, 23.dp),
+                .size(80.dp, 23.dp),
             text = "Список",
             color = Color(0x87000000),
             fontSize = 18.sp,
@@ -420,6 +346,12 @@ fun DriverResponseView() {
             overflow = TextOverflow.Ellipsis,
         )
     }
+
+//    kotlinx.coroutines.GlobalScope.launch {
+//        delay(15000L)
+//
+//        navController?.navigate(ScreenDriversResponse)
+//    }
 }
 
 @Preview(showBackground = true)
@@ -432,7 +364,7 @@ fun DriverResponseViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                DriverResponseView()
+                DriverResponseView(null)
             }
         }
     }

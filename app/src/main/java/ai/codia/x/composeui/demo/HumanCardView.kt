@@ -6,10 +6,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -17,6 +19,8 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -33,12 +37,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 /**
  * Created by codia-figma
  */
 @Composable
-fun HumanCardView() {
+fun HumanCardView(navController: NavHostController?) {
     // Box-14:294-5 Карточка человека
     Box(
         contentAlignment = Alignment.TopStart,
@@ -260,16 +265,32 @@ fun HumanCardView() {
                     .size(186.003.dp, 1.dp)
                     .border(2.dp, Color(0xff000000)),
             )
-            // Image-177:229-send-01
-            Image(
-                painter = painterResource(id = R.drawable.image1_177229),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
+
+            Button(onClick = {
+                navController?.navigate(
+                    ScreenDriversRequest
+                )
+            },
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = 326.dp, y = 87.dp)
-                    .size(32.dp, 32.dp),
-            )
+                    .offset(x = 326.dp, y = 77.dp)
+                    .padding(0.dp)
+                    .size(50.dp, 50.dp),
+                contentPadding = PaddingValues(5.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Transparent
+                ),
+
+                ) {
+                Image(
+                    painter = painterResource(id = R.drawable.image10_196701),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(30.dp, 30.dp),
+                )
+            }
+
+
             // Image-177:230-user-profile-circle
             Image(
                 painter = painterResource(id = R.drawable.image2_177230),
@@ -332,98 +353,13 @@ fun HumanCardView() {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Image-28:106-wallet-02
-        Image(
-            painter = painterResource(id = R.drawable.image7_28106),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 131.dp, y = 774.dp)
-                .size(35.dp, 29.dp),
+
+        Box(
         )
-        // Image-28:107-Icon
-        Image(
-            painter = painterResource(id = R.drawable.image8_28107),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 222.dp, y = 777.dp)
-                .size(35.dp, 29.dp),
-        )
-        // Image-28:108-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image9_28108),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 40.dp, y = 772.dp)
-                .size(35.dp, 35.dp),
-        )
-        // Image-28:109-message-alert-circle
-        Image(
-            painter = painterResource(id = R.drawable.image10_28109),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 313.dp, y = 773.dp)
-                .size(35.dp, 33.939.dp),
-        )
-        // Text-28:110-Главная
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 34.dp, y = 807.dp),
-            text = "Главная",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-28:111-Платежи
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 123.dp, y = 807.dp),
-            text = "Платежи",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-28:112-Акции
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 222.dp, y = 807.dp),
-            text = "Акции",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-28:113-Новости
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 306.dp, y = 807.dp),
-            text = "Новости",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+        {
+            BottomBar(navController)
+        }
+
         // Text-177:228-Максим
         Text(
             modifier = Modifier
@@ -451,7 +387,7 @@ fun HumanCardViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                HumanCardView()
+                HumanCardView(null)
             }
         }
     }

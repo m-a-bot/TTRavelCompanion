@@ -1,12 +1,15 @@
 package ai.codia.x.composeui.demo
 
 import ai.codia.x.composeui.demo.ui.theme.CodiaDemoComposeUITheme
+import android.annotation.SuppressLint
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,13 +34,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -45,12 +53,19 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Created by codia-figma
  */
+@OptIn(DelicateCoroutinesApi::class)
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun DriverRequestView() {
+fun DriverRequestView(navController: NavHostController?) {
+
     // Box-196:512-6 Запрос
     Box(
         contentAlignment = Alignment.TopStart,
@@ -194,99 +209,11 @@ fun DriverRequestView() {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Image-196:544-wallet-02
-        Image(
-            painter = painterResource(id = R.drawable.image7_196544),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 131.dp, y = 774.dp)
-                .size(35.dp, 29.dp),
+        Box(
         )
-        // Image-196:545-Icon
-        Image(
-            painter = painterResource(id = R.drawable.image8_196545),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 222.dp, y = 777.dp)
-                .size(35.dp, 29.dp)
-                .border(2.dp, Color(0xff009b3a)),
-        )
-        // Image-196:546-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image9_196546),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 40.dp, y = 772.dp)
-                .size(35.dp, 35.dp),
-        )
-        // Image-196:547-message-alert-circle
-        Image(
-            painter = painterResource(id = R.drawable.image10_196547),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 313.dp, y = 773.dp)
-                .size(35.dp, 33.939.dp),
-        )
-        // Text-196:548-Главная
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 34.dp, y = 807.dp),
-            text = "Главная",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:549-Платежи
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 123.dp, y = 807.dp),
-            text = "Платежи",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:550-Акции
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 222.dp, y = 807.dp),
-            text = "Акции",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:551-Новости
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 306.dp, y = 807.dp),
-            text = "Новости",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+        {
+            BottomBar(navController)
+        }
         // Empty-196:552-Rectangle 39
         Box(
             modifier = Modifier
@@ -300,7 +227,8 @@ fun DriverRequestView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentSize()
-                .offset(x = 62.dp, y = 626.dp),
+//                .layoutId("text1")
+                .offset(x = 62.dp, y = 630.dp),
             text = "Ваша заявка отправлена\nЖдем ответ...",
             color = Color(0xff000000),
             fontSize = 24.sp,
@@ -308,28 +236,42 @@ fun DriverRequestView() {
             textAlign = TextAlign.Center,
             overflow = TextOverflow.Ellipsis,
         )
-        // Empty-196:555-6 cancel rect
-        Box(
+
+
+        Button(onClick = {
+            navController?.navigate(
+                ScreenListOfPeople(
+                    1, 1
+                )
+            )
+        },
             modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 105.dp, y = 710.dp)
-                .background(Color(0xffffffff), RoundedCornerShape(5.dp))
-                .size(200.dp, 29.dp)
-                .border(1.dp, Color(0xff000000), RoundedCornerShape(5.dp)),
-        )
+                .offset(135.dp, 700.dp)
+                .padding(0.dp)
+                .layoutId("button1")
+                .size(150.dp, 30.dp),
+            contentPadding = PaddingValues(0.dp),
+            border = BorderStroke(1.dp, Color.Red),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent
+            ),
+
+            ) {
+            Text(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .offset(x = 0.dp, y = 0.dp),
+                text = "Отменить",
+                color = Color(0xff820a0a),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal,
+                textAlign = TextAlign.Center,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+
         // Text-196:556-Отменить
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 156.dp, y = 710.dp),
-            text = "Отменить",
-            color = Color(0xff820a0a),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+
         // Empty-196:557-Line 16
         Box(
             modifier = Modifier
@@ -351,8 +293,8 @@ fun DriverRequestView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 29.dp, y = 549.dp)
-                .size(245.dp, 32.dp),
-            text = "Казань,ул. Кремлевская 35",
+                .size(180.dp, 64.dp),
+            text = "Казань,\nул. Кремлевская 35",
             color = Color(0x91000000),
             fontSize = 15.sp,
             fontWeight = FontWeight.Normal,
@@ -372,8 +314,8 @@ fun DriverRequestView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 257.dp, y = 549.dp)
-                .size(245.dp, 32.dp),
-            text = "Буинск,ул. Ефремова 123",
+                .size(180.dp, 64.dp),
+            text = "Буинск,\nул. Ефремова 123",
             color = Color(0x91000000),
             fontSize = 15.sp,
             fontWeight = FontWeight.Normal,
@@ -435,7 +377,7 @@ fun DriverRequestView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 108.dp, y = 31.dp)
-                .size(62.dp, 23.dp),
+                .size(80.dp, 23.dp),
             text = "Список",
             color = Color(0x87000000),
             fontSize = 18.sp,
@@ -457,6 +399,19 @@ fun DriverRequestView() {
             overflow = TextOverflow.Ellipsis,
         )
     }
+
+//    var shouldNavigate by remember { mutableStateOf(false) }
+//
+//    kotlinx.coroutines.GlobalScope.launch {
+//        delay(1800L)
+//
+//        shouldNavigate = true
+//    }
+//
+//    if (shouldNavigate)
+//    {
+//        navController?.navigate(ScreenDriversResponse)
+//    }
 }
 
 @Preview(showBackground = true)
@@ -469,7 +424,7 @@ fun DriverRequestViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                DriverRequestView()
+                DriverRequestView(null)
             }
         }
     }
