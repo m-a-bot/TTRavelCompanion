@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-64:/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-65:/values-es-rUS/values-es-rUS.xml",
             "map": [
                 {
                     "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\d4affe8001bd19158260f25d11eb9143\\transformed\\play-services-base-18.1.0\\res\\values-es-rUS\\values.xml",

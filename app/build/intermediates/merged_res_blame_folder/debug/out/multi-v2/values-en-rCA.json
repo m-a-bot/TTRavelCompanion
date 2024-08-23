@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-64:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-65:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\9df03625f01cca5ea97226004ad3428c\\transformed\\appcompat-1.7.0\\res\\values-en-rCA\\values-en-rCA.xml",

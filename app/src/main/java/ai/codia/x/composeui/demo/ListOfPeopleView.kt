@@ -1,6 +1,7 @@
 package ai.codia.x.composeui.demo
 
 import ai.codia.x.composeui.demo.ui.theme.CodiaDemoComposeUITheme
+import android.widget.GridLayout
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,17 +21,21 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,12 +50,20 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
 
 /**
  * Created by codia-figma
  */
 @Composable
-fun ListOfPeopleView() {
+fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackStackEntry?) {
+
+    val viewModel: NearPersonsViewModel = viewModel()
+
+    val items: List<NearPersons> by viewModel.items.observeAsState(emptyList())
+
     // Box-196:654-3 Список людей
     Box(
         contentAlignment = Alignment.TopStart,
@@ -63,85 +76,84 @@ fun ListOfPeopleView() {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 26.dp, y = 153.dp)
-                .size(362.dp, 599.dp),
-        )
-        // Text-196:656-09:00
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 273.dp, y = 235.dp)
-                .width(78.dp),
-            text = "09:00",
-            color = Color(0xaf000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:657-10:00
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 273.dp, y = 278.dp)
-                .width(78.dp),
-            text = "10:00",
-            color = Color(0xaf000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:658-07:00
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 273.dp, y = 322.dp)
-                .width(78.dp),
-            text = "07:00",
-            color = Color(0xaf000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:659-12:30
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 273.dp, y = 363.dp)
-                .width(78.dp),
-            text = "12:30",
-            color = Color(0xaf000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:660-17:00
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 273.dp, y = 404.dp)
-                .width(78.dp),
-            text = "17:00",
-            color = Color(0xaf000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
+                .offset(x = 25.dp, y = 190.dp)
+                .size(360.dp, 565.dp),
+        ) {
+            
+            LazyColumn {
+                items(items) { item ->
+                    Row (
+                        modifier = Modifier
+                            .offset(y = (-5).dp)
+                    ){
+                        Image(
+                            painter = painterResource(id = R.drawable.image1_196673),
+                            contentDescription = null,
+                            contentScale = ContentScale.Fit,
+                            modifier = Modifier
+                                .align(Alignment.CenterVertically)
+                                .padding(10.dp, 5.dp)
+                                .size(35.dp, 29.dp),
+
+                        )
+                        Text(modifier = Modifier
+                            .padding(0.dp)
+                            .align(Alignment.CenterVertically)
+                            .size(85.dp, 23.dp),
+                            text = item.name)
+                        Text(modifier = Modifier
+                            .padding(0.dp)
+                            .align(Alignment.CenterVertically)
+                            .size(105.dp, 23.dp),
+
+                            text = item.distance)
+                        Text(modifier = Modifier
+                            .padding(0.dp)
+                            .align(Alignment.CenterVertically)
+                            .size(45.dp, 23.dp),
+                            text = item.date_time)
+
+                        Button(onClick = { /*TODO*/ },
+                            modifier = Modifier
+                                .size(80.dp, 50.dp),
+
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.Transparent
+                            ),
+
+                            ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.image10_196701),
+                                contentDescription = null,
+                                contentScale = ContentScale.Fit,
+                                modifier = Modifier
+                                    .size(30.dp, 30.dp),
+                            )
+                        }
+                    }
+                    Box(
+                        modifier = Modifier
+                            .offset(10.dp, (-10).dp)
+                            .size(339.001.dp, 1.dp)
+                            .border(1.dp, Color(0xffa1a1a1)),
+                    )
+                }
+            }
+        }
+
         // Text-196:661-Время
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 273.dp, y = 164.dp)
-                .advancedShadow(color = Color(0x3f000000), alpha = 0.25f, cornersRadius = 0.dp, shadowBlurRadius = 0.dp, offsetX = 0.dp, offsetY = 0.dp)
+                .offset(x = 250.dp, y = 164.dp)
+                .advancedShadow(
+                    color = Color(0x3f000000),
+                    alpha = 0.25f,
+                    cornersRadius = 0.dp,
+                    shadowBlurRadius = 0.dp,
+                    offsetX = 0.dp,
+                    offsetY = 0.dp
+                )
                 .size(118.249.dp, 31.206.dp)
                 .border(1.dp, Color(0x02ffffff)),
             text = "Время",
@@ -155,8 +167,15 @@ fun ListOfPeopleView() {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 166.dp, y = 164.dp)
-                .advancedShadow(color = Color(0x3f000000), alpha = 0.25f, cornersRadius = 0.dp, shadowBlurRadius = 0.dp, offsetX = 0.dp, offsetY = 0.dp)
+                .offset(x = 145.dp, y = 164.dp)
+                .advancedShadow(
+                    color = Color(0x3f000000),
+                    alpha = 0.25f,
+                    cornersRadius = 0.dp,
+                    shadowBlurRadius = 0.dp,
+                    offsetX = 0.dp,
+                    offsetY = 0.dp
+                )
                 .size(118.249.dp, 31.206.dp)
                 .border(1.dp, Color(0x02ffffff)),
             text = "Расстояние",
@@ -166,77 +185,20 @@ fun ListOfPeopleView() {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Text-196:663-Айгуль
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 80.dp, y = 274.dp)
-                .size(73.dp, 32.dp),
-            text = "Айгуль",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:664-976 м
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 166.dp, y = 275.dp)
-                .size(61.dp, 32.dp),
-            text = "976 м",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:665-473 м
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 166.dp, y = 323.dp)
-                .size(61.dp, 32.dp),
-            text = "473 м",
-            color = Color(0xaa000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:666-2 км
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 166.dp, y = 362.dp)
-                .size(61.dp, 32.dp),
-            text = "2 км",
-            color = Color(0xaa000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:667-935 м
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 166.dp, y = 406.dp)
-                .size(61.dp, 32.dp),
-            text = "935 м",
-            color = Color(0xaa000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
+
         // Text-196:668-Имя
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 80.dp, y = 164.dp)
-                .advancedShadow(color = Color(0x3f000000), alpha = 0.25f, cornersRadius = 0.dp, shadowBlurRadius = 0.dp, offsetX = 0.dp, offsetY = 0.dp)
+                .offset(x = 60.dp, y = 164.dp)
+                .advancedShadow(
+                    color = Color(0x3f000000),
+                    alpha = 0.25f,
+                    cornersRadius = 0.dp,
+                    shadowBlurRadius = 0.dp,
+                    offsetX = 0.dp,
+                    offsetY = 0.dp
+                )
                 .size(45.365.dp, 31.206.dp)
                 .border(1.dp, Color(0x02ffffff)),
             text = "Имя",
@@ -246,71 +208,8 @@ fun ListOfPeopleView() {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Text-196:669-Анар
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 80.dp, y = 233.dp)
-                .width(62.dp),
-            text = "Анар",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:670-Данис
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 80.dp, y = 363.dp)
-                .size(73.dp, 32.dp),
-            text = "Данис",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:671-Катя
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 80.dp, y = 322.dp)
-                .width(46.dp),
-            text = "Катя",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:672-Анар
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 80.dp, y = 406.dp)
-                .width(62.dp),
-            text = "Анар",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Image-196:673-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image1_196673),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 234.dp)
-                .size(24.dp, 24.dp),
-        )
+
+
         // Empty-196:674-Rectangle 1
         Box(
             modifier = Modifier
@@ -340,7 +239,7 @@ fun ListOfPeopleView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 103.dp, y = 34.dp)
-                .size(62.dp, 23.dp),
+                .size(80.dp, 23.dp),
             text = "Список",
             color = Color(0x87000000),
             fontSize = 18.sp,
@@ -353,7 +252,8 @@ fun ListOfPeopleView() {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentSize()
-                .offset(x = 224.dp, y = 34.dp),
+                .offset(x = 224.dp, y = 34.dp)
+                .size(80.dp, 23.dp),
             text = "Карта",
             color = Color(0x87000000),
             fontSize = 18.sp,
@@ -374,249 +274,7 @@ fun ListOfPeopleView() {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Empty-196:682-Line 1
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 34.dp, y = 146.dp)
-                .size(228.dp, 1.dp)
-                .border(3.dp, Color(0xff000000)),
-        )
-        // Text-196:683-Максим
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 80.dp, y = 194.dp)
-                .width(78.dp),
-            text = "Максим",
-            color = Color(0xff000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:684-15:00
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 273.dp, y = 197.dp)
-                .width(78.dp),
-            text = "15:00",
-            color = Color(0xaf000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:685-543 м
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 168.dp, y = 195.dp)
-                .width(59.dp),
-            text = "543 м",
-            color = Color(0xaa000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:686-1 км
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 168.dp, y = 234.dp)
-                .width(38.dp),
-            text = "1 км",
-            color = Color(0xaa000000),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Empty-196:687-Line 2
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 35.dp, y = 220.dp)
-                .size(335.dp, 1.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Empty-196:688-3 delimiter
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 34.dp, y = 184.dp)
-                .size(325.dp, 1.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Image-196:689-Line 3
-        Image(
-            painter = painterResource(id = R.drawable.image2_196689),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 33.dp, y = 260.dp)
-                .size(337.dp, 2.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Empty-196:690-Line 4
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 33.dp, y = 303.dp)
-                .size(337.dp, 1.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Empty-196:691-Line 5
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 30.999.dp, y = 344.5.dp)
-                .size(339.001.dp, 1.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Empty-196:692-Line 6
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 34.dp, y = 390.dp)
-                .size(338.dp, 1.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Empty-196:693-Line 7
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 32.dp, y = 432.dp)
-                .size(340.dp, 1.dp)
-                .border(1.dp, Color(0xffa1a1a1)),
-        )
-        // Image-196:694-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image3_196694),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 193.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:695-user logo
-        Image(
-            painter = painterResource(id = R.drawable.image4_196695),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 193.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:696-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image5_196696),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 274.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:697-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image6_196697),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 318.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:698-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image7_196698),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 362.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:699-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image8_196699),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 406.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:700-3 send logo
-        Image(
-            painter = painterResource(id = R.drawable.image9_196700),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 348.dp, y = 191.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:701-send-01
-        Image(
-            painter = painterResource(id = R.drawable.image10_196701),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 348.dp, y = 231.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:702-send-01
-        Image(
-            painter = painterResource(id = R.drawable.image11_196702),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 348.dp, y = 272.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:703-send-01
-        Image(
-            painter = painterResource(id = R.drawable.image12_196703),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 348.dp, y = 316.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:704-send-01
-        Image(
-            painter = painterResource(id = R.drawable.image13_196704),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 348.dp, y = 360.dp)
-                .size(24.dp, 24.dp),
-        )
-        // Image-196:705-send-01
-        Image(
-            painter = painterResource(id = R.drawable.image14_196705),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 348.dp, y = 404.dp)
-                .size(24.dp, 24.dp),
-        )
+
         // Image-196:706-wallet-02
         Image(
             painter = painterResource(id = R.drawable.image15_196706),
@@ -709,14 +367,7 @@ fun ListOfPeopleView() {
             textAlign = TextAlign.Center,
             overflow = TextOverflow.Ellipsis,
         )
-        // Empty-196:715-Rectangle 42
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 195.dp, y = 62.dp)
-                .background(Color(0x00ffffff))
-                .size(114.dp, 33.dp),
-        )
+
         // Image-196:716-marker-02
         Image(
             painter = painterResource(id = R.drawable.image19_196716),
@@ -750,7 +401,7 @@ fun ListOfPeopleViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                ListOfPeopleView()
+                ListOfPeopleView(null, null)
             }
         }
     }

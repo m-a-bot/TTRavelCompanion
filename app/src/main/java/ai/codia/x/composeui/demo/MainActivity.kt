@@ -135,7 +135,7 @@ class MainActivity : ComponentActivity() {
                     }
                     composable<ScreenB>
                     {
-                        MainScreenForPassengerView(navController, it)
+                        ListOfPeopleView(navController, it)
                     }
                     composable<ScreenC>
                     {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-64:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "ai.codia.x.composeui.demo.app-mergeDebugResources-65:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\minne\\.gradle\\caches\\transforms-3\\03b4dad1c373eabb1ecd2b1d7c105167\\transformed\\core-1.13.1\\res\\values-en-rGB\\values-en-rGB.xml",
