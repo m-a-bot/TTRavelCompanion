@@ -1,12 +1,14 @@
 package ai.codia.x.composeui.demo
 
 import ai.codia.x.composeui.demo.ui.theme.CodiaDemoComposeUITheme
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -73,106 +75,111 @@ fun ToOurServiceView(navController: NavHostController?) {
                 .offset(x = 23.dp, y = 592.dp)
                 .size(360.dp, 70.dp),
         )
-        // Empty-196:424-Rectangle 1
         Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = -18.dp, y = 764.dp)
-                .background(Color(0x00d9d9d9))
-                .size(422.dp, 80.dp)
         )
-        // Image-196:425-wallet-02
-        Image(
-            painter = painterResource(id = R.drawable.image2_196425),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 144.dp, y = 772.dp)
-                .size(35.dp, 29.dp),
-        )
-        // Image-196:426-Icon
-        Image(
-            painter = painterResource(id = R.drawable.image3_196426),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 235.dp, y = 775.dp)
-                .size(35.dp, 29.dp)
-        )
-        // Image-196:427-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image4_196427),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 53.dp, y = 770.dp)
-                .size(35.dp, 35.dp),
-        )
-        // Image-196:428-message-alert-circle
-        Image(
-            painter = painterResource(id = R.drawable.image5_196428),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 326.dp, y = 771.dp)
-                .size(35.dp, 33.939.dp),
-        )
-        // Text-196:429-Главная
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 47.dp, y = 805.dp),
-            text = "Главная",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:430-Платежи
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 136.dp, y = 805.dp),
-            text = "Платежи",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:431-Акции
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 235.dp, y = 805.dp),
-            text = "Акции",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:432-Новости
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 319.dp, y = 805.dp),
-            text = "Новости",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+        {
+            BottomBar(navController)
+        }
+//        // Empty-196:424-Rectangle 1
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = -18.dp, y = 764.dp)
+//                .background(Color(0x00d9d9d9))
+//                .size(422.dp, 80.dp)
+//        )
+//        // Image-196:425-wallet-02
+//        Image(
+//            painter = painterResource(id = R.drawable.image2_196425),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 144.dp, y = 772.dp)
+//                .size(35.dp, 29.dp),
+//        )
+//        // Image-196:426-Icon
+//        Image(
+//            painter = painterResource(id = R.drawable.image3_196426),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 235.dp, y = 775.dp)
+//                .size(35.dp, 29.dp)
+//        )
+//        // Image-196:427-user-profile-circle
+//        Image(
+//            painter = painterResource(id = R.drawable.image4_196427),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 53.dp, y = 770.dp)
+//                .size(35.dp, 35.dp),
+//        )
+//        // Image-196:428-message-alert-circle
+//        Image(
+//            painter = painterResource(id = R.drawable.image5_196428),
+//            contentDescription = null,
+//            contentScale = ContentScale.Fit,
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 326.dp, y = 771.dp)
+//                .size(35.dp, 33.939.dp),
+//        )
+//        // Text-196:429-Главная
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+//                .offset(x = 47.dp, y = 805.dp),
+//            text = "Главная",
+//            color = Color(0xbc000000),
+//            fontSize = 12.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+//        // Text-196:430-Платежи
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+//                .offset(x = 136.dp, y = 805.dp),
+//            text = "Платежи",
+//            color = Color(0xbc000000),
+//            fontSize = 12.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+//        // Text-196:431-Акции
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+//                .offset(x = 235.dp, y = 805.dp),
+//            text = "Акции",
+//            color = Color(0xbc000000),
+//            fontSize = 12.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+//        // Text-196:432-Новости
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+//                .offset(x = 319.dp, y = 805.dp),
+//            text = "Новости",
+//            color = Color(0xbc000000),
+//            fontSize = 12.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
         // Text-196:433-Алия
         Text(
             modifier = Modifier
@@ -343,5 +350,128 @@ fun ToOurServiceViewPreview() {
                 ToOurServiceView(null)
             }
         }
+    }
+}
+
+@Composable
+fun BottomBar(navController: NavHostController?) {
+    Box(
+        modifier = Modifier
+            .background(Color(0x00d9d9d9))
+            .size(422.dp, 80.dp)
+    ) {
+        // Image-196:425-wallet-02
+        Image(
+            painter = painterResource(id = R.drawable.image2_196425),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 144.dp, y = 772.dp)
+                .size(35.dp, 29.dp),
+        )
+
+
+        // Image-196:426-Icon
+        Image(
+            painter = painterResource(id = R.drawable.image3_196426),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 235.dp, y = 775.dp)
+                .size(35.dp, 29.dp)
+        )
+        Button(
+            onClick = {
+                navController?.navigate(ScreenA)
+            },
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(0.dp)
+                .align(Alignment.Center)
+                .offset(x = 35.dp, y = 770.dp)
+                .size(70.dp, 55.dp),
+            contentPadding = PaddingValues(0.dp),
+            shape = RoundedCornerShape(0),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent
+            )
+        ) {
+            Column {
+            // Image-196:427-user-profile-circle
+                Image(
+                    painter = painterResource(id = R.drawable.image4_196427),
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier
+                        .offset(x = 0.dp, y = 0.dp)
+                        .size(35.dp, 35.dp),
+                )
+                // Text-196:429-Главная
+                Text(
+                    modifier = Modifier
+                        .wrapContentSize()
+                        .offset(x = (-5).dp, y = 1.dp),
+                    text = "Главная",
+                    color = Color(0xbc000000),
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Normal,
+                    textAlign = TextAlign.Center,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
+
+        // Image-196:428-message-alert-circle
+        Image(
+            painter = painterResource(id = R.drawable.image5_196428),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 326.dp, y = 771.dp)
+                .size(35.dp, 33.939.dp),
+        )
+
+        // Text-196:430-Платежи
+        Text(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .wrapContentSize()
+                .offset(x = 136.dp, y = 805.dp),
+            text = "Платежи",
+            color = Color(0xbc000000),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Center,
+            overflow = TextOverflow.Ellipsis,
+        )
+        // Text-196:431-Акции
+        Text(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .wrapContentSize()
+                .offset(x = 235.dp, y = 805.dp),
+            text = "Акции",
+            color = Color(0xbc000000),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Center,
+            overflow = TextOverflow.Ellipsis,
+        )
+        // Text-196:432-Новости
+        Text(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .wrapContentSize()
+                .offset(x = 319.dp, y = 805.dp),
+            text = "Новости",
+            color = Color(0xbc000000),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Center,
+            overflow = TextOverflow.Ellipsis,
+        )
     }
 }
