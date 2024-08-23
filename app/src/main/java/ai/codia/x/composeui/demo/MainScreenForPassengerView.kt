@@ -7,6 +7,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -357,6 +358,7 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .offset(x = 87.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
+            contentPadding = PaddingValues(0.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray,
             )
         ) {
@@ -384,164 +386,15 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .offset(x = 213.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
-
+            contentPadding = PaddingValues(0.dp),
         ) {
             Text("Водитель")
         }
-        // Box-192:251-bottom
-        Box(
-            contentAlignment = Alignment.TopStart,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 47.dp, y = 736.dp)
-                .size(321.dp, 57.dp),
-        ) {
-            // Image-192:252-wallet-02
 
-            // Text-192:256-Главная
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 0.dp, y = 35.dp),
-                text = "Главная",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-192:257-Платежи
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 89.dp, y = 35.dp),
-                text = "Платежи",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-192:258-Акции
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 188.dp, y = 35.dp),
-                text = "Акции",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-192:259-Новости
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 272.dp, y = 35.dp),
-                text = "Новости",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Image-192:260-wallet-02
-            Image(
-                painter = painterResource(id = R.drawable.image5_192260),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 97.dp, y = 2.dp)
-                    .size(35.dp, 29.dp),
-            )
-            // Image-192:261-Icon
-            Image(
-                painter = painterResource(id = R.drawable.image6_192261),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 188.dp, y = 5.dp)
-                    .size(35.dp, 29.dp)
-            )
-            // Image-192:262-user-profile-circle
-            Image(
-                painter = painterResource(id = R.drawable.image7_192262),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 6.dp, y = 0.dp)
-                    .size(35.dp, 35.dp),
-            )
-            // Image-192:263-message-alert-circle
-            Image(
-                painter = painterResource(id = R.drawable.image8_192263),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 279.dp, y = 1.dp)
-                    .size(35.dp, 33.939.dp),
-            )
-            // Text-192:264-Главная
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 0.dp, y = 35.dp),
-                text = "Главная",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-192:265-Платежи
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 89.dp, y = 35.dp),
-                text = "Платежи",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-192:266-Акции
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 188.dp, y = 35.dp),
-                text = "Акции",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Text-192:267-Новости
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .wrapContentSize()
-                    .offset(x = 272.dp, y = 35.dp),
-                text = "Новости",
-                color = Color(0xbc000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
+        Box(
+        )
+        {
+            BottomBar(navController)
         }
         // Text-192:268-Водитель
 //        Text(

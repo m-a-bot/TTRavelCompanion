@@ -8,6 +8,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -85,6 +86,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
                     Row (
                         modifier = Modifier
                             .offset(y = (-5).dp)
+                            .padding(0.dp, 5.dp, 0.dp, 5.dp)
                     ){
                         Image(
                             painter = painterResource(id = R.drawable.image1_196673),
@@ -113,10 +115,16 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
                             .size(45.dp, 23.dp),
                             text = item.date_time)
 
-                        Button(onClick = { /*TODO*/ },
+                        Button(onClick = {
+                            navController?.navigate(
+                                ScreenDetailOfTrip
+                            )
+                        },
                             modifier = Modifier
-                                .size(80.dp, 50.dp),
-
+                                .offset(15.dp, 0.dp)
+                                .padding(0.dp)
+                                .size(50.dp, 50.dp),
+                            contentPadding = PaddingValues(5.dp),
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = Color.Transparent
                             ),
@@ -125,7 +133,6 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
                             Image(
                                 painter = painterResource(id = R.drawable.image10_196701),
                                 contentDescription = null,
-                                contentScale = ContentScale.Fit,
                                 modifier = Modifier
                                     .size(30.dp, 30.dp),
                             )
@@ -209,15 +216,12 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
             overflow = TextOverflow.Ellipsis,
         )
 
-
-        // Empty-196:674-Rectangle 1
         Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = -18.dp, y = 764.dp)
-                .background(Color(0x00d9d9d9))
-                .size(422.dp, 80.dp)
         )
+        {
+            BottomBar(navController)
+        }
+
         // Empty-196:677-Rectangle 6
         Box(
             modifier = Modifier
@@ -275,98 +279,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
             overflow = TextOverflow.Ellipsis,
         )
 
-        // Image-196:706-wallet-02
-        Image(
-            painter = painterResource(id = R.drawable.image15_196706),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 131.dp, y = 772.dp)
-                .size(35.dp, 29.dp),
-        )
-        // Image-196:707-Icon
-        Image(
-            painter = painterResource(id = R.drawable.image16_196707),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 222.dp, y = 775.dp)
-                .size(35.dp, 29.dp)
-        )
-        // Image-196:708-user-profile-circle
-        Image(
-            painter = painterResource(id = R.drawable.image17_196708),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 40.dp, y = 770.dp)
-                .size(35.dp, 35.dp),
-        )
-        // Image-196:709-message-alert-circle
-        Image(
-            painter = painterResource(id = R.drawable.image18_196709),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 313.dp, y = 771.dp)
-                .size(35.dp, 33.939.dp),
-        )
-        // Text-196:710-Главная
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 34.dp, y = 805.dp),
-            text = "Главная",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:711-Платежи
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 123.dp, y = 805.dp),
-            text = "Платежи",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:712-Акции
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 222.dp, y = 805.dp),
-            text = "Акции",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:713-Новости
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-                .offset(x = 306.dp, y = 805.dp),
-            text = "Новости",
-            color = Color(0xbc000000),
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
+
 
         // Image-196:716-marker-02
         Image(
