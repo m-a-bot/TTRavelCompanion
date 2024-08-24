@@ -1,36 +1,22 @@
-package ai.codia.x.composeui.demo
+package ai.codia.x.composeui.demo.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.sql.Connection
-import java.sql.DriverManager
-import java.sql.ResultSet
-import java.util.Date
+import com.yandex.mapkit.geometry.Point
 
 enum class User {
     DRIVER,
     COMPANION
 }
 
-data class Persons (
-    val id_person: Int,
-    val id_card: Int,
-    val name: String,
-    val birth_data: String,
-    val rating: Double
-)
-
 data class NearPersons (
     val id_person: Int,
     val name: String,
     val distance: String,
     val date_time: String,
-    val is_driver: User
+    val is_driver: User,
+    val location: Point = Point(54.974509, 48.290636)
 )
 
 
