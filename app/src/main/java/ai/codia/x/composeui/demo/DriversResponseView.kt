@@ -34,7 +34,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -77,8 +82,8 @@ fun DriverResponseView(navController: NavHostController?) {
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 99.dp)
-                .size(390.dp, 484.dp),
+                .offset(x = 10.dp, y = 75.dp)
+                .size(390.dp, 500.dp),
         )
         // Image-196:578-Иконка
         Image(
@@ -347,11 +352,13 @@ fun DriverResponseView(navController: NavHostController?) {
         )
     }
 
-//    kotlinx.coroutines.GlobalScope.launch {
-//        delay(15000L)
-//
-//        navController?.navigate(ScreenDriversResponse)
-//    }
+    var showWindow by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+
+    scope.launch {
+        delay(1800L) // Задержка в миллисекундах (3000 = 3 секунды)
+        navController?.navigate(ScreenEndOfTrip)
+    }
 }
 
 @Preview(showBackground = true)

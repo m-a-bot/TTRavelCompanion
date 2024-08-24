@@ -122,7 +122,7 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = ScreenResponseToRequestView
+                    startDestination = ScreenA
                 ){
                     composable<ScreenA> {
                         ToOurServiceView(navController)
@@ -160,9 +160,13 @@ class MainActivity : ComponentActivity() {
                         DriverResponseView(navController)
                     }
 
-                    composable<ScreenResponseToRequestView>
+                    composable<ScreenResponseToRequest>
                     {
                         ResponseToRequestView(navController)
+                    }
+                    composable<ScreenEndOfTrip>
+                    {
+                        EndOfTripView(navController)
                     }
                 }
 //                // A surface container using the 'background' color from the theme
@@ -321,4 +325,7 @@ object ScreenDriversRequest
 object ScreenDriversResponse
 
 @Serializable
-object ScreenResponseToRequestView
+object ScreenResponseToRequest
+
+@Serializable
+object ScreenEndOfTrip

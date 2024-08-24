@@ -60,8 +60,8 @@ fun HumanCardView(navController: NavHostController?) {
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 0.dp, y = 99.dp)
-                .size(390.dp, 484.dp),
+                .offset(x = 0.dp, y = 75.dp)
+                .size(390.dp, 500.dp),
         )
         // Empty-14:295-Rectangle 1
         Box(
@@ -78,14 +78,14 @@ fun HumanCardView(navController: NavHostController?) {
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 12.dp, y = 58.dp)
+                .offset(x = 12.dp, y = 25.dp)
                 .size(30.dp, 30.dp),
         )
         // Empty-14:305-Rectangle 2
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 75.dp, y = 54.dp)
+                .offset(x = 75.dp, y = 25.dp)
                 .background(Color(0xd3d9d9d9), RoundedCornerShape(5.dp))
                 .size(233.dp, 34.dp),
         )
@@ -96,17 +96,11 @@ fun HumanCardView(navController: NavHostController?) {
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 341.dp, y = 58.dp)
+                .offset(x = 341.dp, y = 25.dp)
                 .size(30.dp, 30.dp),
         )
         // Empty-14:307-Rectangle 3
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 189.dp, y = 56.dp)
-                .background(Color(0xffffffff), RoundedCornerShape(5.dp))
-                .size(117.dp, 30.dp),
-        )
+
 
         // Text-14:311-Карта
 //        Text(
@@ -125,7 +119,7 @@ fun HumanCardView(navController: NavHostController?) {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 75.dp, y = 54.dp)
+                .offset(x = 75.dp, y = 25.dp)
                 .background(Color(0xd3d9d9d9), RoundedCornerShape(5.dp))
                 .size(233.dp, 34.dp),
         )
@@ -133,7 +127,7 @@ fun HumanCardView(navController: NavHostController?) {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 189.dp, y = 56.dp)
+                .offset(x = 189.dp, y = 27.dp)
                 .background(Color(0xffffffff), RoundedCornerShape(5.dp))
                 .size(117.dp, 30.dp),
         )
@@ -141,7 +135,7 @@ fun HumanCardView(navController: NavHostController?) {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 102.dp, y = 61.dp)
+                .offset(x = 102.dp, y = 31.dp)
                 .size(70.dp, 23.dp),
             text = "Список",
             color = Color(0x87000000),
@@ -155,7 +149,7 @@ fun HumanCardView(navController: NavHostController?) {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentSize()
-                .offset(x = 223.dp, y = 61.dp),
+                .offset(x = 223.dp, y = 31.dp),
             text = "Карта",
             color = Color(0x87000000),
             fontSize = 18.sp,
