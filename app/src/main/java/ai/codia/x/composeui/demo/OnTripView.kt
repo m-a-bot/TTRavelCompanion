@@ -67,7 +67,7 @@ import kotlinx.coroutines.launch
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun DriverRequestView(navController: NavHostController?) {
+fun OnTripView(navController: NavHostController?) {
 
     // Box-196:512-6 Запрос
     Box(
@@ -180,7 +180,7 @@ fun DriverRequestView(navController: NavHostController?) {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentHeight()
-                .offset(x = 76.dp, y = 497.dp)
+                .offset(x = 76.dp, y = 503.dp)
                 .width(136.dp),
             text = "Максим",
             color = Color(0xaf000000),
@@ -205,7 +205,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .align(Alignment.TopStart)
                 .offset(x = 29.dp, y = 458.dp)
                 .size(245.dp, 32.dp),
-            text = "Ближайший водитель",
+            text = "Водитель",
             color = Color(0xff000000),
             fontSize = 20.sp,
             fontWeight = FontWeight.Normal,
@@ -232,7 +232,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .wrapContentSize()
 //                .layoutId("text1")
                 .offset(x = 62.dp, y = 630.dp),
-            text = "Ваша заявка отправлена\nЖдем ответ...",
+            text = "В пути ...",
             color = Color(0xff000000),
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
@@ -254,7 +254,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .layoutId("button1")
                 .size(150.dp, 30.dp),
             contentPadding = PaddingValues(0.dp),
-            border = BorderStroke(1.dp, Color.Red),
+            border = BorderStroke(1.dp, Color.Magenta),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent
             ),
@@ -264,8 +264,8 @@ fun DriverRequestView(navController: NavHostController?) {
                 modifier = Modifier
                     .wrapContentSize()
                     .offset(x = 0.dp, y = 0.dp),
-                text = "Отменить",
-                color = Color(0xff820a0a),
+                text = "...",
+                color = Color.Magenta,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center,
@@ -334,11 +334,11 @@ fun DriverRequestView(navController: NavHostController?) {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentHeight()
-                .offset(x = 305.dp, y = 493.dp)
+                .offset(x = 275.dp, y = 480.dp)
                 .width(116.dp),
-            text = "543 м",
+            text = "Прошло 1 ч.\nОсталось 6 ч.",
             color = Color(0xaa000000),
-            fontSize = 24.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
@@ -419,7 +419,7 @@ fun DriverRequestView(navController: NavHostController?) {
 
 @Preview(showBackground = true)
 @Composable
-fun DriverRequestViewPreview() {
+fun OnTripViewPreview() {
     CodiaDemoComposeUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -427,7 +427,7 @@ fun DriverRequestViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                DriverRequestView(null)
+                OnTripView(null)
             }
         }
     }
