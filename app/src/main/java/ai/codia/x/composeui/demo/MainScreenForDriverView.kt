@@ -61,10 +61,11 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
     var place_arrival by rememberSaveable { mutableStateOf("") }
     var time by rememberSaveable { mutableStateOf("") }
     var number_passengers by rememberSaveable { mutableStateOf("") }
+    var cost_of_trip by rememberSaveable { mutableStateOf("") }
 
     val myIcon: Painter = painterResource(id = R.drawable.image12_192274)
     val myIcon1: Painter = painterResource(id = R.drawable.image3_196527)
-    val myIcon2: Painter = painterResource(id = R.drawable.image14_192286)
+    val myIcon2: Painter = painterResource(id = R.drawable.request_money)
     val myIcon3: Painter = painterResource(id = R.drawable.image15_192287)
 
     val textFieldColors = TextFieldDefaults.textFieldColors(
@@ -143,7 +144,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 44.dp, y = 177.dp)
-                .background(Color(0x60d9d9d9), RoundedCornerShape(17.dp))
+                .background(Color(0xffe8e8e8), RoundedCornerShape(17.dp))
                 .size(330.dp, 338.dp),
         )
         // Empty-192:227-Line 19
@@ -181,14 +182,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .size(25.dp, 25.dp)
                 .border(1.dp, Color(0xffa1a1a1), RoundedCornerShape(12.5.dp)),
         )
-        // Empty-192:231-Rectangle 50
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 457.dp)
-                .background(Color(0xff009b3a), RoundedCornerShape(23.dp))
-                .size(328.dp, 61.dp),
-        )
+
         // Image-192:232-Ellipse 11
         Image(
             painter = painterResource(id = R.drawable.image4_192232),
@@ -220,14 +214,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                 .offset(x = 63.dp, y = 264.dp)
                 .size(13.dp, 13.dp),
         )
-        // Empty-192:235-Rectangle 51
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 446.dp)
-                .background(Color(0xff009b3a))
-                .size(328.dp, 46.dp),
-        )
+
         // Text-192:236-Найти пассажиров
         Text(
             modifier = Modifier
@@ -345,16 +332,20 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
 //                .offset(x = 93.dp, y = 680.dp)
 //                .size(233.dp, 34.dp),
 //        )
+
         Button(
             onClick = {  navController?.navigate(ScreenPassengerView(
                 34
             )) },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 92.dp, y = 682.dp)
+                .offset(x = 88.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             contentPadding = PaddingValues(0.dp),
             shape = RoundedCornerShape(5.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.LightGray,
+            )
             )
             {
             Text("Пассажир")
@@ -381,7 +372,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
             shape = RoundedCornerShape(5.dp),
             contentPadding = PaddingValues(0.dp),
             colors = ButtonDefaults.buttonColors(
-            containerColor = Color.LightGray,
+            containerColor = Color.Gray,
             )
         ) {
             Text("Водитель")
@@ -407,13 +398,13 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
 //            overflow = TextOverflow.Ellipsis,
 //        )
         // Empty-192:269-Rectangle 54
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 177.dp)
-                .background(Color(0xffe8e8e8), RoundedCornerShape(17.dp))
-                .size(330.dp, 338.dp),
-        )
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 44.dp, y = 177.dp)
+//                .background(Color(0xffe8e8e8), RoundedCornerShape(17.dp))
+//                .size(330.dp, 338.dp),
+//        )
         // Empty-192:270-Line 24
 //        Box(
 //            modifier = Modifier
@@ -479,7 +470,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
             onClick = {},
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 45.dp, y = 449.dp)
+                .offset(x = 45.dp, y = 503.dp)
                 .size(330.dp, 70.dp),
             shape = RoundedCornerShape(0.dp, 0.dp, 16.dp, 16.dp),
             colors = buttonColors
@@ -517,7 +508,9 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                     contentDescription = null,
                 )
             },
-            onValueChange = { place_departure = it },
+            onValueChange = {
+                place_departure = it
+            },
             placeholder = { Text("Откуда") },
             singleLine = true,
             textStyle = TextStyle(
@@ -607,7 +600,7 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
         TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 45.dp, y = 385.dp)
+                .offset(x = 45.dp, y = 380.dp)
                 .size(330.dp, 54.dp),
             value = number_passengers,
             leadingIcon = {
@@ -616,7 +609,10 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
                     contentDescription = null,
                 )},
 //                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
-            onValueChange = { number_passengers = it },
+            onValueChange = {
+                val filteredText = it.filter{it.isDigit() and (it.toInt() > 0)}
+                number_passengers = filteredText
+            },
             placeholder = { Text("1") },
             textStyle = TextStyle(
                 fontSize = 24.sp,
@@ -625,26 +621,34 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
             colors = textFieldColors,
             singleLine = true,
         )
-        // Image-192:286-1 calendar
-//        Image(
-//            painter = painterResource(id = R.drawable.image14_192286),
-//            contentDescription = null,
-//            contentScale = ContentScale.FillBounds,
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 57.dp, y = 328.dp)
-//                .size(25.dp, 25.dp),
-//        )
-        // Image-192:287-1 person
-//        Image(
-//            painter = painterResource(id = R.drawable.image15_192287),
-//            contentDescription = null,
-//            contentScale = ContentScale.Fit,
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 51.dp, y = 396.dp)
-//                .size(36.dp, 36.dp),
-//        )
+
+        TextField(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 45.dp, y = 439.dp)
+                .size(330.dp, 54.dp),
+            value = cost_of_trip,
+            leadingIcon = {
+                Image(
+                    modifier = Modifier
+                        .size(30.dp, 30.dp),
+                    painter = myIcon2,
+                    contentDescription = null,
+                )},
+//                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
+            onValueChange = {
+                val filteredText = it.filter{it.isDigit() and (it.toInt() > 0)}
+                number_passengers = filteredText
+            },
+            placeholder = { Text("1000") },
+            textStyle = TextStyle(
+                fontSize = 24.sp,
+                color = Color.DarkGray
+            ),
+            colors = textFieldColors,
+            singleLine = true,
+        )
+
         // Image-192:298-1 photo
         Image(
             painter = painterResource(id = R.drawable.image_2_photo),

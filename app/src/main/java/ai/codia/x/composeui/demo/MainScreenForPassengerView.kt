@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -21,13 +23,18 @@ import androidx.compose.material.icons.filled.DateRange
 
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.rememberDatePickerState
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,9 +45,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -49,9 +58,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Popup
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import androidx.navigation.toRoute
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 /**
  * Created by codia-figma
@@ -151,17 +164,11 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 44.dp, y = 177.dp)
-                .background(Color(0x60d9d9d9), RoundedCornerShape(17.dp))
+                .background(Color(0xffe8e8e8), RoundedCornerShape(17.dp))
                 .size(330.dp, 338.dp),
         )
         // Empty-192:227-Line 19
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 382.dp)
-                .size(325.dp, 1.dp)
-                .border(1.dp, Color(0xff000000)),
-        )
+
         // Empty-192:228-Line 22
         Box(
             modifier = Modifier
@@ -341,16 +348,8 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .offset(x = 351.dp, y = 24.dp)
                 .size(30.dp, 30.dp),
         )
-        // Image-192:245-1 left choose
-//        Image(
-//            painter = painterResource(id = R.drawable.image11_192245),
-//            contentDescription = null,
-//            contentScale = ContentScale.Fit,
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 93.dp, y = 680.dp)
-//                .size(233.dp, 34.dp),
-//        )
+
+
         Button(
             onClick = { /*TODO*/ },
             modifier = Modifier
@@ -359,24 +358,13 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
             contentPadding = PaddingValues(0.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Gray,
             )
         ) {
             Text("Пассажир")
         }
-        // Text-192:250-Пассажир
-//        Text(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 106.dp, y = 685.dp)
-//                .size(96.dp, 24.dp),
-//            text = "Пассажир",
-//            color = Color(0xff000000),
-//            fontSize = 18.sp,
-//            fontWeight = FontWeight.Normal,
-//            textAlign = TextAlign.Center,
-//            overflow = TextOverflow.Ellipsis,
-//        )
+
         Button(
             onClick = {  navController?.navigate(ScreenDriverView(
                 34
@@ -387,6 +375,9 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
             contentPadding = PaddingValues(0.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.LightGray,
+            )
         ) {
             Text("Водитель")
         }
@@ -396,87 +387,8 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
         {
             BottomBar(navController)
         }
-        // Text-192:268-Водитель
-//        Text(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .wrapContentSize()
-//                .offset(x = 223.dp, y = 686.dp),
-//            text = "Водитель",
-//            color = Color(0x87000000),
-//            fontSize = 18.sp,
-//            fontWeight = FontWeight.Normal,
-//            textAlign = TextAlign.Center,
-//            overflow = TextOverflow.Ellipsis,
-//        )
-        // Empty-192:269-Rectangle 54
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 177.dp)
-                .background(Color(0xffe8e8e8), RoundedCornerShape(17.dp))
-                .size(330.dp, 338.dp),
-        )
-        // Empty-192:270-Line 24
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 44.dp, y = 382.dp)
-//                .size(330.dp, 1.dp)
-//                .border(1.dp, Color(0xff000000)),
-//        )
-//        // Empty-192:271-Line 25
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 45.dp, y = 307.dp)
-//                .size(329.dp, 1.dp)
-//                .border(1.dp, Color(0xff000000)),
-//        )
-//        // Empty-192:272-Line 26
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 47.dp, y = 235.dp)
-//                .size(327.dp, 1.dp)
-//                .border(1.dp, Color(0xff000000)),
-//        )
-        // Empty-192:273-Rectangle 55
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 44.dp, y = 457.dp)
-//                .background(Color(0xff009b3a), RoundedCornerShape(23.dp))
-//                .size(330.dp, 61.dp),
-//        )
-        // Image-192:274-1 radio active
-//        Image(
-//            painter = painterResource(id = R.drawable.image12_192274),
-//            contentDescription = null,
-//            contentScale = ContentScale.Fit,
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 57.dp, y = 194.dp)
-//                .size(25.dp, 25.dp),
-//        )
-//        // Image-192:277-1 radio inactive
-//        Image(
-//            painter = painterResource(id = R.drawable.image13_192277),
-//            contentDescription = null,
-//            contentScale = ContentScale.Fit,
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 57.dp, y = 258.dp)
-//                .size(25.dp, 25.dp),
-//        )
-//        // Empty-192:280-Rectangle 56
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 44.dp, y = 446.dp)
-//                .background(Color(0xff009b3a))
-//                .size(330.dp, 46.dp),
-//        )
+
+
         // Text-192:281-Найти водителя
         Button(
             onClick = {
@@ -497,21 +409,7 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
             )
         }
 
-//        Text(
-//            modifier = Modifier
-//                .align(Alignment.TopStart)
-//                .offset(x = 121.dp, y = 469.dp)
-//                .size(172.dp, 27.dp),
-//            text = "Найти водителя",
-//            color = Color(0xffffffff),
-//            fontSize = 20.sp,
-//            fontWeight = FontWeight.Normal,
-//            textAlign = TextAlign.Center,
-//            overflow = TextOverflow.Ellipsis,
-//        )
         // Text-192:282-Откуда
-
-
         TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -581,11 +479,12 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
 //            textAlign = TextAlign.Left,
 //            overflow = TextOverflow.Ellipsis,
 //        )
+
         TextField(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 45.dp, y = 320.dp)
-                .size(330.dp, 54.dp),
+                .offset(x = 45.dp, y = 315.dp)
+                .size(330.dp, 60.dp),
             value = time,
             leadingIcon = {
                 Icon(Icons.Filled.DateRange, contentDescription = "Calendar") },
@@ -598,6 +497,10 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
             ),
             colors = textFieldColors,
         )
+//        Box()
+//        {
+//            DatePickerDocked()
+//        }
         // Text-192:285-К
 //        Text(
 //            modifier = Modifier
@@ -623,7 +526,10 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
                     contentDescription = null,
                 )},
 //                Icon(Icons.Filled.Person, contentDescription = "Localized description") },
-            onValueChange = { number_passengers = it },
+            onValueChange = {
+                val filteredText = it.filter{it.isDigit() and (it.toInt() > 0)}
+                number_passengers = filteredText
+            },
             placeholder = { Text("1") },
             textStyle = TextStyle(
                 fontSize = 24.sp,
@@ -678,6 +584,64 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
 //            }
 //        }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DatePickerDocked() {
+    var showDatePicker by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+    val selectedDate = datePickerState.selectedDateMillis?.let {
+        convertMillisToDate(it)
+    } ?: ""
+
+    Box(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        OutlinedTextField(
+            value = selectedDate,
+            onValueChange = { },
+            label = { Text("DOB") },
+            readOnly = true,
+            trailingIcon = {
+                IconButton(onClick = { showDatePicker = !showDatePicker }) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = "Select date"
+                    )
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(64.dp)
+        )
+
+        if (showDatePicker) {
+            Popup(
+                onDismissRequest = { showDatePicker = false },
+                alignment = Alignment.TopStart
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .offset(y = 64.dp)
+                        .shadow(elevation = 4.dp)
+                        .background(MaterialTheme.colorScheme.surface)
+                        .padding(16.dp)
+                ) {
+                    DatePicker(
+                        state = datePickerState,
+                        showModeToggle = false
+                    )
+                }
+            }
+        }
+    }
+}
+
+fun convertMillisToDate(millis: Long): String {
+    val formatter = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault())
+    return formatter.format(Date(millis))
 }
 
 @Preview(showBackground = true)

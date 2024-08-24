@@ -97,7 +97,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
             contentAlignment = Alignment.TopStart,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 97.125.dp, y = 110.679.dp)
+                .offset(x = 97.125.dp, y = 77.dp)
                 .size(249.875.dp, 48.665.dp),
         ) {
             // Text-196:381-TTRavel Companion
@@ -132,70 +132,17 @@ fun ResponseToRequestView(navController: NavHostController?) {
             contentAlignment = Alignment.TopStart,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 355.dp)
-                .size(326.dp, 224.dp),
+                .offset(x = 44.dp, y = 330.dp)
+                .size(326.dp, 310.dp),
         ) {
-            // Image-196:387-image 4
-            Image(
-                painter = painterResource(id = R.drawable.image_196387),
-                contentDescription = null,
-                contentScale = ContentScale.FillBounds,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .size(326.dp, 224.dp),
-            )
-            // Text-196:388-Вы
-            Text(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 169.dp, y = 89.dp)
-                    .size(36.dp, 18.dp),
-                text = "Вы",
-                color = Color(0xff000000),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Left,
-                overflow = TextOverflow.Ellipsis,
-            )
-            // Box-196:389-Group 5
-            Box(
-                contentAlignment = Alignment.TopStart,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = 226.dp, y = 188.dp)
-                    .size(42.dp, 17.dp),
-            ) {
-                // Image-196:390-User
-                Image(
-                    painter = painterResource(id = R.drawable.image_196390),
-                    contentDescription = null,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .offset(x = 0.dp, y = 3.dp)
-                        .size(12.dp, 12.dp),
-                )
-                // Text-196:391-Алия
-                Text(
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .offset(x = 12.dp, y = 0.dp)
-                        .size(30.dp, 17.dp),
-                    text = "Алия",
-                    color = Color(0xff000000),
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Normal,
-                    textAlign = TextAlign.Center,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
+            YandexMapWithRoute()
         }
         // Box-196:392-10 accept
         Button(
             onClick = {},
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 100.dp, y = 662.dp)
+                .offset(x = 100.dp, y = 715.dp)
                 .size(97.dp, 36.dp),
             contentPadding = PaddingValues(0.dp),
             shape = RoundedCornerShape(5.dp),
@@ -230,7 +177,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
             },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 210.dp, y = 663.dp)
+                .offset(x = 210.dp, y = 715.dp)
                 .size(97.dp, 35.dp),
             contentPadding = PaddingValues(0.dp),
             shape = RoundedCornerShape(5.dp),
@@ -262,7 +209,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 70.dp, y = 187.dp)
+                .offset(x = 70.dp, y = 140.dp)
                 .size(269.dp, 35.dp),
             text = "Пользователь Алия \n...",
             color = Color(0xff000000),
@@ -275,7 +222,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 72.dp, y = 595.dp)
+                .offset(x = 72.dp, y = 645.dp)
                 .size(269.dp, 35.dp),
             text = "Дата отправки - 08.08.2024 17:04",
             color = Color(0xff000000),
@@ -288,9 +235,9 @@ fun ResponseToRequestView(navController: NavHostController?) {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 226.dp)
-                .size(327.dp, 71.dp),
-            text = "Длинное описание (можно сделать  заготовки для пользователя, которому требуется помощь)",
+                .offset(x = 44.dp, y = 175.dp)
+                .size(327.dp, 100.dp),
+            text = "Пункт отправления\nПункт назначения",
             color = Color(0xff8d8d8d),
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
@@ -301,7 +248,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 100.dp, y = 626.dp)
+                .offset(x = 100.dp, y = 680.dp)
                 .size(214.dp, 29.dp),
             text = "Статус - ...",
             color = Color(0xff8d8d8d),
@@ -317,14 +264,14 @@ fun ResponseToRequestView(navController: NavHostController?) {
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 44.dp, y = 301.dp)
+                .offset(x = 44.dp, y = 275.dp)
                 .size(45.dp, 45.dp),
         )
         // Text-196:403-Алия
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 89.dp, y = 306.dp)
+                .offset(x = 89.dp, y = 284.dp)
                 .size(73.dp, 35.dp),
             text = "Алия",
             color = Color(0xff000000),
@@ -340,7 +287,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 26.dp, y = 107.dp)
+                .offset(x = 26.dp, y = 75.dp)
                 .size(52.dp, 52.dp),
         )
     }

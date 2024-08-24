@@ -55,13 +55,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.map.CameraPosition
@@ -73,12 +69,10 @@ import com.yandex.runtime.image.ImageProvider
 
 
 import android.util.Log
-import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -165,6 +159,15 @@ class MainActivity : ComponentActivity() {
                     {
                         DriverResponseView(navController)
                     }
+
+                    composable<ScreenResponseToRequest>
+                    {
+                        ResponseToRequestView(navController)
+                    }
+                    composable<ScreenEndOfTrip>
+                    {
+                        EndOfTripView(navController)
+                    }
                 }
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -224,13 +227,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun YandexMapWithUI(navController: NavHostController) {
+fun YandexMapWithUI(navController: NavHostController?) {
     val context = LocalContext.current
 
     // Control the camera position with state
     var cameraPosition by remember {
         mutableStateOf(
-            CameraPosition(Point(55.810835, 49.127887), 11.0f, 0.0f, 0.0f)
+            CameraPosition(Point(55.810835, 49.127887), 6.5f, 0.0f, 0.0f)
         )
     }
 
@@ -238,19 +241,6 @@ fun YandexMapWithUI(navController: NavHostController) {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        // Header Text
-        Text(
-            text = "Yandex Map Integration",
-            modifier = Modifier.padding(16.dp),
-            style = MaterialTheme.typography.headlineMedium
-        )
-
-        Button(onClick = {
-            // Move the camera to a different location
-            cameraPosition = CameraPosition(Point(55.797203, 49.134085), 11.0f, 0.0f, 0.0f)
-        }) {
-            Text(text = "Move to Piter")
-        }
 
         // MapView as part of the Compose UI
         AndroidView(
@@ -263,8 +253,13 @@ fun YandexMapWithUI(navController: NavHostController) {
 
                     // Example placemark
                     map.mapObjects.addPlacemark(
-                        Point(55.751244, 37.618423),
-                        ImageProvider.fromResource(context, R.drawable.image10_192244)
+                        Point(55.790775, 49.121856),
+                        ImageProvider.fromResource(context, R.drawable.image12_192274)
+                    )
+
+                    map.mapObjects.addPlacemark(
+                        Point(54.974509, 48.290636),
+                        ImageProvider.fromResource(context, R.drawable.image3_196527)
                     )
                 }
             },
@@ -274,25 +269,25 @@ fun YandexMapWithUI(navController: NavHostController) {
         )
 
         // Buttons to control the map
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            Button(onClick = {
-                // Move the camera to a different location
-                cameraPosition = CameraPosition(Point(59.9342802, 30.3350986), 11.0f, 0.0f, 0.0f)
-            }) {
-                Text(text = "Move to SPB")
-            }
-            Button(onClick = {
-                // Reset camera to the initial position
-                cameraPosition = CameraPosition(Point(55.751244, 37.618423), 11.0f, 0.0f, 0.0f)
-            }) {
-                Text(text = "Move to Moscow")
-            }
-        }
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(16.dp),
+//            horizontalArrangement = Arrangement.SpaceEvenly
+//        ) {
+//            Button(onClick = {
+//                // Move the camera to a different location
+//                cameraPosition = CameraPosition(Point(59.9342802, 30.3350986), 11.0f, 0.0f, 0.0f)
+//            }) {
+//                Text(text = "Move to SPB")
+//            }
+//            Button(onClick = {
+//                // Reset camera to the initial position
+//                cameraPosition = CameraPosition(Point(55.751244, 37.618423), 11.0f, 0.0f, 0.0f)
+//            }) {
+//                Text(text = "Move to Moscow")
+//            }
+//        }
     }
 }
 
@@ -328,3 +323,9 @@ object ScreenDriversRequest
 
 @Serializable
 object ScreenDriversResponse
+
+@Serializable
+object ScreenResponseToRequest
+
+@Serializable
+object ScreenEndOfTrip

@@ -34,13 +34,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -57,42 +51,38 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
  * Created by codia-figma
  */
-
 @SuppressLint("CoroutineCreationDuringComposition")
+@OptIn(DelicateCoroutinesApi::class)
 @Composable
-fun DriverRequestView(navController: NavHostController?) {
-
-    // Box-196:512-6 Запрос
+fun EndOfTripView(navController: NavHostController?) {
+    // Box-196:563-7 Ответ
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
-            .fillMaxWidth()
             .background(Color(0xffffffff), RoundedCornerShape(40.dp))
-            .height(844.dp)
+            .size(390.dp, 844.dp)
             .clip(RoundedCornerShape(40.dp)),
     ) {
 
-
-        // Image-196:522-map1 2
+        // Image-196:566-map1 2
         Image(
-            painter = painterResource(id = R.drawable.image2_196522),
+            painter = painterResource(id = R.drawable.image1_196566),
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 75.dp)
-                .size(390.dp, 500.dp),
+                .offset(x = 10.dp, y = 99.dp)
+                .size(390.dp, 484.dp),
         )
-        // Image-196:527-Иконка
+        // Image-196:578-Иконка
         Image(
-            painter = painterResource(id = R.drawable.image3_196527),
+            painter = painterResource(id = R.drawable.image2_196578),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
@@ -100,9 +90,9 @@ fun DriverRequestView(navController: NavHostController?) {
                 .offset(x = 70.dp, y = 509.dp)
                 .size(25.dp, 25.dp),
         )
-        // Image-196:530-Иконка
+        // Image-196:581-Иконка
         Image(
-            painter = painterResource(id = R.drawable.image4_196530),
+            painter = painterResource(id = R.drawable.image3_196581),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
@@ -110,17 +100,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .offset(x = 142.dp, y = 529.dp)
                 .size(25.dp, 25.dp),
         )
-        // Image-196:533-Иконка
-        Image(
-            painter = painterResource(id = R.drawable.image5_196533),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 316.dp, y = 422.dp)
-                .size(25.dp, 25.dp),
-        )
-        // Text-196:536-Максим
+        // Text-196:584-Максим
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -133,7 +113,7 @@ fun DriverRequestView(navController: NavHostController?) {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Text-196:537-Данис
+        // Text-196:585-Данис
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -146,41 +126,55 @@ fun DriverRequestView(navController: NavHostController?) {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Text-196:538-Катя
+        // Empty-196:586-Rectangle 36
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 10.dp, y = 457.dp)
+                .background(Color(0xffffffff), RoundedCornerShape(26.dp))
+                .size(393.dp, 332.dp),
+        )
+        // Text-196:587-ул. Кремлевская 35
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 345.dp, y = 426.dp)
-                .size(47.dp, 17.dp),
-            text = "Катя",
-            color = Color(0xff000000),
-            fontSize = 12.sp,
+                .offset(x = 38.dp, y = 579.dp)
+                .size(245.dp, 32.dp),
+            text = "ул. Кремлевская 35",
+            color = Color(0x91000000),
+            fontSize = 15.sp,
             fontWeight = FontWeight.Normal,
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Empty-196:539-Rectangle 36
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 422.dp)
-                .background(Color(0xffffffff), RoundedCornerShape(26.dp))
-                .size(393.dp, 367.dp),
-        )
-        // Empty-196:540-Line 14
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 119.dp, y = 439.dp)
-                .size(186.003.dp, 1.dp)
-                .border(2.dp, Color(0xff000000)),
-        )
-        // Text-196:541-Максим
+        // Text-196:588-543 м
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentHeight()
-                .offset(x = 76.dp, y = 497.dp)
+                .offset(x = 215.dp, y = 537.dp)
+                .width(116.dp),
+            text = "543 м",
+            color = Color(0xaa000000),
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Left,
+            overflow = TextOverflow.Ellipsis,
+        )
+        // Empty-196:589-Line 14
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 112.dp, y = 475.dp)
+                .size(186.003.dp, 1.dp)
+                .border(2.dp, Color(0xff000000)),
+        )
+        // Text-196:590-Максим
+        Text(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .wrapContentHeight()
+                .offset(x = 86.dp, y = 537.dp)
                 .width(136.dp),
             text = "Максим",
             color = Color(0xaf000000),
@@ -189,21 +183,21 @@ fun DriverRequestView(navController: NavHostController?) {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Image-196:542-user-profile-circle
+        // Image-196:591-user-profile-circle
         Image(
-            painter = painterResource(id = R.drawable.image6_196542),
+            painter = painterResource(id = R.drawable.image4_196591),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 28.dp, y = 498.dp)
+                .offset(x = 38.dp, y = 538.dp)
                 .size(32.dp, 32.dp),
         )
-        // Text-196:543-Ближайший водитель
+        // Text-196:592-Ближайший водитель
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 29.dp, y = 458.dp)
+                .offset(x = 39.dp, y = 498.dp)
                 .size(245.dp, 32.dp),
             text = "Ближайший водитель",
             color = Color(0xff000000),
@@ -217,7 +211,7 @@ fun DriverRequestView(navController: NavHostController?) {
         {
             BottomBar(navController)
         }
-        // Empty-196:552-Rectangle 39
+        // Empty-196:601-Rectangle 39
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -225,27 +219,24 @@ fun DriverRequestView(navController: NavHostController?) {
                 .background(Color(0x00b44242))
                 .size(214.dp, 20.dp),
         )
-        // Text-196:554-Ваша заявка отправленаЖдем ответ...
+        // Text-196:603-Водитель спешит к Вам
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentSize()
-//                .layoutId("text1")
-                .offset(x = 62.dp, y = 630.dp),
-            text = "Ваша заявка отправлена\nЖдем ответ...",
+                .offset(x = 70.dp, y = 635.dp),
+            text = "Заявка выполнена\nВодитель Вас довёз",
             color = Color(0xff000000),
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
             textAlign = TextAlign.Center,
             overflow = TextOverflow.Ellipsis,
         )
-
+        // Box-196:604-7 cancel with red text
 
         Button(onClick = {
             navController?.navigate(
-                ScreenListOfPeople(
-                    1, 1
-                )
+                ScreenA
             )
         },
             modifier = Modifier
@@ -254,7 +245,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .layoutId("button1")
                 .size(150.dp, 30.dp),
             contentPadding = PaddingValues(0.dp),
-            border = BorderStroke(1.dp, Color.Red),
+            border = BorderStroke(1.dp, Color(120,165,90)),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent
             ),
@@ -264,8 +255,8 @@ fun DriverRequestView(navController: NavHostController?) {
                 modifier = Modifier
                     .wrapContentSize()
                     .offset(x = 0.dp, y = 0.dp),
-                text = "Отменить",
-                color = Color(0xff820a0a),
+                text = "Спасибо",
+                color = Color(120,165,90),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center,
@@ -273,9 +264,7 @@ fun DriverRequestView(navController: NavHostController?) {
             )
         }
 
-        // Text-196:556-Отменить
-
-        // Empty-196:557-Line 16
+        // Empty-196:607-Line 16
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -283,7 +272,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .size(390.dp, 1.dp)
                 .border(1.dp, Color(0x42000000)),
         )
-        // Empty-196:558-6 delimeter
+        // Empty-196:608-7 delimeter
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -291,58 +280,7 @@ fun DriverRequestView(navController: NavHostController?) {
                 .size(390.dp, 1.dp)
                 .border(1.dp, Color(0x42000000)),
         )
-        // Text-196:559-Казань,ул. Кремлевская 35
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 29.dp, y = 549.dp)
-                .size(180.dp, 64.dp),
-            text = "Казань,\nул. Кремлевская 35",
-            color = Color(0x91000000),
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
 
-        Image(
-            painter = painterResource(id = R.drawable.image4_14310),
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 20.dp, y = 565.dp)
-                .fillMaxWidth()
-                .height(21.dp),
-        )
-
-        // Text-196:561-Буинск,ул. Ефремова 123
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 257.dp, y = 549.dp)
-                .size(180.dp, 64.dp),
-            text = "Буинск,\nул. Ефремова 123",
-            color = Color(0x91000000),
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
-        // Text-196:562-543 м
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentHeight()
-                .offset(x = 305.dp, y = 493.dp)
-                .width(116.dp),
-            text = "543 м",
-            color = Color(0xaa000000),
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Left,
-            overflow = TextOverflow.Ellipsis,
-        )
         // Image-196:891-search-01
         Image(
             painter = painterResource(id = R.drawable.image11_196891),
@@ -407,19 +345,16 @@ fun DriverRequestView(navController: NavHostController?) {
         )
     }
 
-    var showWindow by remember { mutableStateOf(false) }
-    val scope = rememberCoroutineScope()
-
-    scope.launch {
-        delay(1800L) // Задержка в миллисекундах (3000 = 3 секунды)
-        navController?.navigate(ScreenDriversResponse)
-    }
-
+//    kotlinx.coroutines.GlobalScope.launch {
+//        delay(15000L)
+//
+//        navController?.navigate(ScreenDriversResponse)
+//    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DriverRequestViewPreview() {
+fun EndOfTripViewPreview() {
     CodiaDemoComposeUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -427,7 +362,7 @@ fun DriverRequestViewPreview() {
         ) {
             val scrollState = rememberScrollState()
             Column(modifier = Modifier.verticalScroll(scrollState)) {
-                DriverRequestView(null)
+                EndOfTripView(null)
             }
         }
     }

@@ -13,7 +13,6 @@ dependencyResolutionManagement {
         maven { url = uri("http://maven.google.com/")
                 isAllowInsecureProtocol = true
         }
-
     }
 }
 

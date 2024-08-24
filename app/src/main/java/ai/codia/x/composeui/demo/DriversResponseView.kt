@@ -34,7 +34,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -70,6 +75,7 @@ fun DriverResponseView(navController: NavHostController?) {
             .clip(RoundedCornerShape(40.dp)),
     ) {
 
+
         // Image-196:566-map1 2
         Image(
             painter = painterResource(id = R.drawable.image1_196566),
@@ -77,8 +83,8 @@ fun DriverResponseView(navController: NavHostController?) {
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 99.dp)
-                .size(390.dp, 484.dp),
+                .offset(x = 10.dp, y = 75.dp)
+                .size(390.dp, 500.dp),
         )
         // Image-196:578-Иконка
         Image(
@@ -126,27 +132,69 @@ fun DriverResponseView(navController: NavHostController?) {
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
-        // Empty-196:586-Rectangle 36
+
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 457.dp)
+                .offset(x = 10.dp, y = 455.dp)
                 .background(Color(0xffffffff), RoundedCornerShape(26.dp))
-                .size(393.dp, 332.dp),
+                .size(393.dp, 367.dp),
         )
+
         // Text-196:587-ул. Кремлевская 35
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 38.dp, y = 579.dp)
+//                .size(245.dp, 32.dp),
+//            text = "ул. Кремлевская 35",
+//            color = Color(0x91000000),
+//            fontSize = 15.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Left,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 38.dp, y = 579.dp)
-                .size(245.dp, 32.dp),
-            text = "ул. Кремлевская 35",
+                .offset(x = 29.dp, y = 580.dp)
+                .size(180.dp, 64.dp),
+            text = "Казань,\nул. Кремлевская 35",
             color = Color(0x91000000),
             fontSize = 15.sp,
             fontWeight = FontWeight.Normal,
             textAlign = TextAlign.Left,
             overflow = TextOverflow.Ellipsis,
         )
+
+        Image(
+            painter = painterResource(id = R.drawable.image4_14310),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 20.dp, y = 595.dp)
+                .fillMaxWidth()
+                .height(21.dp),
+        )
+
+
+
+        // Text-196:561-Буинск,ул. Ефремова 123
+        Text(
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .offset(x = 257.dp, y = 580.dp)
+                .size(180.dp, 64.dp),
+            text = "Буинск,\nул. Ефремова 123",
+            color = Color(0x91000000),
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Left,
+            overflow = TextOverflow.Ellipsis,
+        )
+
         // Text-196:588-543 м
         Text(
             modifier = Modifier
@@ -211,20 +259,12 @@ fun DriverResponseView(navController: NavHostController?) {
         {
             BottomBar(navController)
         }
-        // Empty-196:601-Rectangle 39
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 95.dp, y = 622.dp)
-                .background(Color(0x00b44242))
-                .size(214.dp, 20.dp),
-        )
         // Text-196:603-Водитель спешит к Вам
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentSize()
-                .offset(x = 70.dp, y = 651.dp),
+                .offset(x = 70.dp, y = 675.dp),
             text = "Водитель спешит к Вам",
             color = Color(0xff000000),
             fontSize = 24.sp,
@@ -242,12 +282,12 @@ fun DriverResponseView(navController: NavHostController?) {
             )
         },
             modifier = Modifier
-                .offset(135.dp, 700.dp)
+                .offset(135.dp, 715.dp)
                 .padding(0.dp)
                 .layoutId("button1")
                 .size(150.dp, 30.dp),
             contentPadding = PaddingValues(0.dp),
-            border = BorderStroke(1.dp, Color.Red),
+            border = BorderStroke(1.dp, Color.Gray),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent
             ),
@@ -258,7 +298,7 @@ fun DriverResponseView(navController: NavHostController?) {
                     .wrapContentSize()
                     .offset(x = 0.dp, y = 0.dp),
                 text = "Отменить",
-                color = Color(0xff820a0a),
+                color = Color.Gray,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center,
@@ -278,7 +318,7 @@ fun DriverResponseView(navController: NavHostController?) {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 611.dp)
+                .offset(x = 10.dp, y = 645.dp)
                 .size(390.dp, 1.dp)
                 .border(1.dp, Color(0x42000000)),
         )
@@ -347,11 +387,13 @@ fun DriverResponseView(navController: NavHostController?) {
         )
     }
 
-//    kotlinx.coroutines.GlobalScope.launch {
-//        delay(15000L)
-//
-//        navController?.navigate(ScreenDriversResponse)
-//    }
+    var showWindow by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+
+    scope.launch {
+        delay(1800L) // Задержка в миллисекундах (3000 = 3 секунды)
+        navController?.navigate(ScreenEndOfTrip)
+    }
 }
 
 @Preview(showBackground = true)

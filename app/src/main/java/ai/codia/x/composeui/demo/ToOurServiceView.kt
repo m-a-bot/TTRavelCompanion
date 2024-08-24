@@ -247,7 +247,7 @@ fun ToOurServiceView(navController: NavHostController?) {
 
                 onClick = {
                     /*ToDo*/
-                    navController?.navigate(ScreenDriverView(
+                    navController?.navigate(ScreenPassengerView(
                         34
                     ))
                 },
