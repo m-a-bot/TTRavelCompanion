@@ -247,7 +247,7 @@ fun DriverResponseView(navController: NavHostController?) {
                 .layoutId("button1")
                 .size(150.dp, 30.dp),
             contentPadding = PaddingValues(0.dp),
-            border = BorderStroke(1.dp, Color.Red),
+            border = BorderStroke(1.dp, Color.Gray),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent
             ),
@@ -258,7 +258,7 @@ fun DriverResponseView(navController: NavHostController?) {
                     .wrapContentSize()
                     .offset(x = 0.dp, y = 0.dp),
                 text = "Отменить",
-                color = Color(0xff820a0a),
+                color = Color.Gray,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center,

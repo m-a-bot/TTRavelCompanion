@@ -34,10 +34,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,13 +57,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
  * Created by codia-figma
  */
-@OptIn(DelicateCoroutinesApi::class)
+
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun DriverRequestView(navController: NavHostController?) {
@@ -400,18 +403,19 @@ fun DriverRequestView(navController: NavHostController?) {
         )
     }
 
-//    var shouldNavigate by remember { mutableStateOf(false) }
-//
-//    kotlinx.coroutines.GlobalScope.launch {
-//        delay(1800L)
-//
-//        shouldNavigate = true
-//    }
-//
-//    if (shouldNavigate)
+    var showWindow by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+
+    scope.launch {
+        delay(1800L) // Задержка в миллисекундах (3000 = 3 секунды)
+        navController?.navigate(ScreenDriversResponse)
+    }
+
+//    if (showWindow)
 //    {
 //        navController?.navigate(ScreenDriversResponse)
 //    }
+
 }
 
 @Preview(showBackground = true)
