@@ -141,7 +141,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 270.dp, y = 164.dp)
+                .offset(x = 268.dp, y = 164.dp)
                 .advancedShadow(
                     color = Color(0x3f000000),
                     alpha = 0.25f,
@@ -163,7 +163,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 155.dp, y = 164.dp)
+                .offset(x = 145.dp, y = 164.dp)
                 .advancedShadow(
                     color = Color(0x3f000000),
                     alpha = 0.25f,
@@ -186,7 +186,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 75.dp, y = 164.dp)
+                .offset(x = 80.dp, y = 164.dp)
                 .advancedShadow(
                     color = Color(0x3f000000),
                     alpha = 0.25f,
@@ -231,7 +231,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 103.dp, y = 34.dp)
+                .offset(x = 95.dp, y = 34.dp)
                 .size(80.dp, 23.dp),
             text = "Список",
             color = Color(0x87000000),
@@ -245,7 +245,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentSize()
-                .offset(x = 224.dp, y = 34.dp)
+                .offset(x = 212.dp, y = 34.dp)
                 .size(80.dp, 23.dp),
             text = "Карта",
             color = Color(0x87000000),
@@ -282,12 +282,12 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         )
         // Image-196:717-Icon
         Image(
-            painter = painterResource(id = R.drawable.image20_196717),
+            painter = painterResource(id = R.drawable.image9_192243),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 22.dp, y = 36.dp)
+                .offset(x = 22.dp, y = 31.dp)
                 .size(27.dp, 27.dp)
         )
     }

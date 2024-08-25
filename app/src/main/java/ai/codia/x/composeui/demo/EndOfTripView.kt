@@ -70,7 +70,7 @@ import kotlinx.coroutines.launch
 @OptIn(DelicateCoroutinesApi::class)
 @Composable
 fun EndOfTripView(navController: NavHostController?) {
-    var showPopup by remember { mutableStateOf(true) }
+    var showPopup by remember { mutableStateOf(false) }
 
     // Box-196:563-7 Ответ
     Box(Modifier
@@ -85,11 +85,11 @@ fun EndOfTripView(navController: NavHostController?) {
 //            .clip(RoundedCornerShape(40.dp)),
 
         modifier = Modifier
-            .fillMaxSize()
+            .size(390.dp, 844.dp)
             .let { modifier ->
                 if (showPopup) {
                     // Применяем размытие при открытии Popup
-                    modifier.blur(16.dp)
+                    modifier.blur(4.dp)
                 } else {
                     modifier
                 }

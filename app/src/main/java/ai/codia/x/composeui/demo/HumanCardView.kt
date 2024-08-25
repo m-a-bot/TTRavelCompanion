@@ -60,7 +60,7 @@ fun HumanCardView(navController: NavHostController?) {
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 0.dp, y = 75.dp)
+                .offset(x = 5.dp, y = 80.dp)
                 .size(390.dp, 500.dp),
         )
         // Empty-14:295-Rectangle 1
@@ -292,14 +292,14 @@ fun HumanCardView(navController: NavHostController?) {
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = 16.dp, y = 87.dp)
+                    .offset(x = 38.dp, y = 83.dp)
                     .size(32.dp, 32.dp),
             )
             // Text-177:231-Ближайший водитель
             Text(
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = 19.dp, y = 34.dp)
+                    .offset(x = 39.dp, y = 39.dp)
                     .size(245.dp, 32.dp),
                 text = "Ближайший водитель",
                 color = Color(0xff000000),
@@ -311,21 +311,22 @@ fun HumanCardView(navController: NavHostController?) {
             // ToDo
             // Empty-117:168-Arrow 1
             Image(
-                painter = painterResource(id = R.drawable.image4_14310),
+                painter = painterResource(id = R.drawable.icons8),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = 0.dp, y = 157.dp)
+                    .offset(x = 20.dp, y = 150.dp)
                     .fillMaxWidth()
-                    .height(21.dp),
+                    .height(29.dp),
             )
         }
-        // Text-117:169-Буинск, ул. Ефремова 123
+        // Text-117:169-Буинск,
+        // ул. Ефремова 123
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 229.dp, y = 693.dp)
+                .offset(x = 257.dp, y = 693.dp)
                 .size(245.dp, 52.dp),
             text = "Буинск,\nул. Ефремова 123",
             color = Color(0x91000000),
@@ -338,7 +339,7 @@ fun HumanCardView(navController: NavHostController?) {
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 14.dp, y = 694.dp)
+                .offset(x = 29.dp, y = 694.dp)
                 .size(245.dp, 52.dp),
             text = "Казань,\nул. Кремлевская 35",
             color = Color(0x91000000),
@@ -359,7 +360,7 @@ fun HumanCardView(navController: NavHostController?) {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .wrapContentHeight()
-                .offset(x = 69.dp, y = 639.dp)
+                .offset(x = 86.dp, y = 639.dp)
                 .width(136.dp),
             text = "Максим",
             color = Color(0xaf000000),

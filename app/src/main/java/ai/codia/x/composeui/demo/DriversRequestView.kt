@@ -306,14 +306,14 @@ fun DriverRequestView(navController: NavHostController?) {
         )
 
         Image(
-            painter = painterResource(id = R.drawable.image4_14310),
+            painter = painterResource(id = R.drawable.icons8),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 20.dp, y = 565.dp)
                 .fillMaxWidth()
-                .height(21.dp),
+                .height(29.dp),
         )
 
         // Text-196:561-Буинск,ул. Ефремова 123
