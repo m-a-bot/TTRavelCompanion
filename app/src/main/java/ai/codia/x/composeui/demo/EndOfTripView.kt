@@ -74,7 +74,7 @@ fun EndOfTripView(navController: NavHostController?) {
 
     // Box-196:563-7 Ответ
     Box(Modifier
-        .offset(0.dp, 420.dp))
+        .offset(0.dp, 0.dp))
     {
         BlurBackgroundPopup(showPopup, navController)
     }
@@ -394,7 +394,9 @@ fun BlurBackgroundPopup(showPopup: Boolean, navController: NavHostController?) {
                     modifier = Modifier
                         .align(Alignment.TopStart)
                         .offset(x = 0.dp, y = 30.dp)
+                        .background(Color(0xffffffff))
                         .size(360.dp, 230.dp),
+
                 ) {
                     // Image-303:406-directions_bus
                     Image(
