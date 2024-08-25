@@ -24,4 +24,9 @@ class RouteViewModel : ViewModel() {
     init {
 
     }
+
+    private fun loadItems() {
+        _items.value = Route(Point(54.974509, 48.290636), Point(54.974509, 48.290636),
+            "123", "123")
+    }
 }

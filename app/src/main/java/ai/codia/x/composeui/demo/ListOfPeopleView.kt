@@ -141,7 +141,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 250.dp, y = 164.dp)
+                .offset(x = 270.dp, y = 164.dp)
                 .advancedShadow(
                     color = Color(0x3f000000),
                     alpha = 0.25f,
@@ -163,7 +163,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 145.dp, y = 164.dp)
+                .offset(x = 155.dp, y = 164.dp)
                 .advancedShadow(
                     color = Color(0x3f000000),
                     alpha = 0.25f,
@@ -186,7 +186,7 @@ fun ListOfPeopleView(navController: NavHostController?, navBackStack: NavBackSta
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 60.dp, y = 164.dp)
+                .offset(x = 75.dp, y = 164.dp)
                 .advancedShadow(
                     color = Color(0x3f000000),
                     alpha = 0.25f,

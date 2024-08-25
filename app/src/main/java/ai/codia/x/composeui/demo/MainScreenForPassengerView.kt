@@ -354,7 +354,7 @@ fun MainScreenForPassengerView(navController: NavHostController?, navBackStack: 
             onClick = { /*TODO*/ },
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 87.dp, y = 682.dp)
+                .offset(x = 89.dp, y = 682.dp)
                 .size(120.dp, 35.dp),
             shape = RoundedCornerShape(5.dp),
             contentPadding = PaddingValues(0.dp),
