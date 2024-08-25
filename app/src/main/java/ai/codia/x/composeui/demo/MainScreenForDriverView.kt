@@ -467,7 +467,9 @@ fun MainScreenForDriverView(navController: NavHostController?, navBackStack: Nav
 //        )
         // Text-192:281-Найти водителя
         Button(
-            onClick = {},
+            onClick = {
+                navController?.navigate(ScreenListUsers)
+            },
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 45.dp, y = 503.dp)

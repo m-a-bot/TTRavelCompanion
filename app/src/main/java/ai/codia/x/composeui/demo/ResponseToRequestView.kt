@@ -139,7 +139,9 @@ fun ResponseToRequestView(navController: NavHostController?) {
         }
         // Box-196:392-10 accept
         Button(
-            onClick = {},
+            onClick = {
+                navController?.navigate(ScreenAccrual)
+            },
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 100.dp, y = 715.dp)
@@ -173,7 +175,7 @@ fun ResponseToRequestView(navController: NavHostController?) {
         // Box-196:395-10 cancel
         Button(
             onClick = {
-
+                navController?.navigate(ScreenA)
             },
             modifier = Modifier
                 .align(Alignment.TopStart)

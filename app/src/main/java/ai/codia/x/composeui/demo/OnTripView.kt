@@ -87,7 +87,7 @@ fun OnTripView(navController: NavHostController?) {
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 75.dp)
+                .offset(x = 0.dp, y = 75.dp)
                 .size(390.dp, 500.dp),
         )
         // Image-196:527-Иконка
@@ -163,7 +163,7 @@ fun OnTripView(navController: NavHostController?) {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 422.dp)
+                .offset(x = 0.dp, y = 422.dp)
                 .background(Color(0xffffffff), RoundedCornerShape(26.dp))
                 .size(393.dp, 367.dp),
         )
@@ -218,79 +218,79 @@ fun OnTripView(navController: NavHostController?) {
             BottomBar(navController)
         }
         // Empty-196:552-Rectangle 39
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 95.dp, y = 622.dp)
-                .background(Color(0x00b44242))
-                .size(214.dp, 20.dp),
-        )
-        // Text-196:554-Ваша заявка отправленаЖдем ответ...
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .wrapContentSize()
-//                .layoutId("text1")
-                .offset(x = 62.dp, y = 630.dp),
-            text = "В пути ...",
-            color = Color(0xff000000),
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
-        )
-
-
-        Button(onClick = {
-            navController?.navigate(
-                ScreenListOfPeople(
-                    1, 1
-                )
-            )
-        },
-            modifier = Modifier
-                .offset(135.dp, 700.dp)
-                .padding(0.dp)
-                .layoutId("button1")
-                .size(150.dp, 30.dp),
-            contentPadding = PaddingValues(0.dp),
-            border = BorderStroke(1.dp, Color.Magenta),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Transparent
-            ),
-
-            ) {
-            Text(
-                modifier = Modifier
-                    .wrapContentSize()
-                    .offset(x = 0.dp, y = 0.dp),
-                text = "...",
-                color = Color.Magenta,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 95.dp, y = 622.dp)
+//                .background(Color(0x00b44242))
+//                .size(214.dp, 20.dp),
+//        )
+//        // Text-196:554-Ваша заявка отправленаЖдем ответ...
+//        Text(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .wrapContentSize()
+////                .layoutId("text1")
+//                .offset(x = 62.dp, y = 630.dp),
+//            text = "В пути ...",
+//            color = Color(0xff000000),
+//            fontSize = 24.sp,
+//            fontWeight = FontWeight.Normal,
+//            textAlign = TextAlign.Center,
+//            overflow = TextOverflow.Ellipsis,
+//        )
+//
+//
+//        Button(onClick = {
+//            navController?.navigate(
+//                ScreenListOfPeople(
+//                    1, 1
+//                )
+//            )
+//        },
+//            modifier = Modifier
+//                .offset(135.dp, 700.dp)
+//                .padding(0.dp)
+//                .layoutId("button1")
+//                .size(150.dp, 30.dp),
+//            contentPadding = PaddingValues(0.dp),
+//            border = BorderStroke(1.dp, Color.Magenta),
+//            colors = ButtonDefaults.buttonColors(
+//                containerColor = Color.Transparent
+//            ),
+//
+//            ) {
+//            Text(
+//                modifier = Modifier
+//                    .wrapContentSize()
+//                    .offset(x = 0.dp, y = 0.dp),
+//                text = "...",
+//                color = Color.Magenta,
+//                fontSize = 20.sp,
+//                fontWeight = FontWeight.Normal,
+//                textAlign = TextAlign.Center,
+//                overflow = TextOverflow.Ellipsis,
+//            )
+//        }
 
         // Text-196:556-Отменить
 
-        // Empty-196:557-Line 16
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 13.dp, y = 764.dp)
-                .size(390.dp, 1.dp)
-                .border(1.dp, Color(0x42000000)),
-        )
-        // Empty-196:558-6 delimeter
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = 10.dp, y = 611.dp)
-                .size(390.dp, 1.dp)
-                .border(1.dp, Color(0x42000000)),
-        )
+//        // Empty-196:557-Line 16
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 13.dp, y = 764.dp)
+//                .size(390.dp, 1.dp)
+//                .border(1.dp, Color(0x42000000)),
+//        )
+//        // Empty-196:558-6 delimeter
+//        Box(
+//            modifier = Modifier
+//                .align(Alignment.TopStart)
+//                .offset(x = 10.dp, y = 611.dp)
+//                .size(390.dp, 1.dp)
+//                .border(1.dp, Color(0x42000000)),
+//        )
         // Text-196:559-Казань,ул. Кремлевская 35
         Text(
             modifier = Modifier
@@ -412,7 +412,7 @@ fun OnTripView(navController: NavHostController?) {
 
     scope.launch {
         delay(1800L) // Задержка в миллисекундах (3000 = 3 секунды)
-        navController?.navigate(ScreenDriversResponse)
+        navController?.navigate(ScreenEndOfTrip)
     }
 
 }

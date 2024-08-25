@@ -76,7 +76,7 @@ fun EndOfTripView(navController: NavHostController?) {
     Box(Modifier
         .offset(0.dp, 420.dp))
     {
-        BlurBackgroundPopup(showPopup)
+        BlurBackgroundPopup(showPopup, navController)
     }
     Box(
         contentAlignment = Alignment.TopStart,
@@ -262,9 +262,7 @@ fun EndOfTripView(navController: NavHostController?) {
         // Box-196:604-7 cancel with red text
 
         Button(onClick = {
-            navController?.navigate(
-                ScreenA
-            )
+            showPopup = true
         },
             modifier = Modifier
                 .offset(135.dp, 700.dp)
@@ -382,7 +380,7 @@ fun EndOfTripView(navController: NavHostController?) {
 
 
 @Composable
-fun BlurBackgroundPopup(showPopup: Boolean) {
+fun BlurBackgroundPopup(showPopup: Boolean, navController: NavHostController?) {
 
     Box(modifier = Modifier.fillMaxSize())
     {
@@ -440,9 +438,7 @@ fun BlurBackgroundPopup(showPopup: Boolean) {
                     ) {
                         Button(
                             onClick = {
-//                                navController?.navigate(ScreenPassengerView(
-//                                34
-//                            ))
+                                navController?.navigate(ScreenIntegrationTS)
                             },
                             modifier = Modifier
                                 .size(120.dp, 35.dp),
@@ -458,9 +454,7 @@ fun BlurBackgroundPopup(showPopup: Boolean) {
                         Spacer(modifier = Modifier.width(10.dp))
                         Button(
                             onClick = {
-//                                navController?.navigate(ScreenPassengerView(
-//                                34
-//                            ))
+                                navController?.navigate(ScreenA)
                             },
                             modifier = Modifier
                                 .size(120.dp, 35.dp),

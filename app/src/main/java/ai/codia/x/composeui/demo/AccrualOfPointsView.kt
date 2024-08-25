@@ -57,9 +57,8 @@ fun AccrualOfPointsView(navController: NavHostController?) {
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
-            .background(Color(0xffffffff), RoundedCornerShape(40.dp))
-            .size(390.dp, 844.dp)
-            .clip(RoundedCornerShape(40.dp)),
+            .background(Color(0xffffffff))
+            .size(395.dp, 844.dp),
     ) {
 
         Box(
@@ -77,7 +76,7 @@ fun AccrualOfPointsView(navController: NavHostController?) {
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = 0.dp, y = -50.dp)
-                .size(390.dp, 814.dp),
+                .size(390.dp, 860.dp),
         )
         // Text-196:421-Максим, спасибо за поездку! Бонусные баллы начислены на баланс
         Text(

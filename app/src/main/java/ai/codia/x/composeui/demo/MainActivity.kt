@@ -168,6 +168,18 @@ class MainActivity : ComponentActivity() {
                     {
                         EndOfTripView(navController)
                     }
+                    composable<ScreenIntegrationTS>
+                    {
+                        TransportSystemIntegrationView(navController)
+                    }
+                    composable<ScreenListUsers>
+                    {
+                        ListUsersView(navController, it)
+                    }
+                    composable<ScreenAccrual>
+                    {
+                        AccrualOfPointsView(navController)
+                    }
                 }
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -325,7 +337,16 @@ object ScreenDriversRequest
 object ScreenDriversResponse
 
 @Serializable
+object ScreenIntegrationTS
+
+@Serializable
 object ScreenResponseToRequest
 
 @Serializable
 object ScreenEndOfTrip
+
+@Serializable
+object ScreenListUsers
+
+@Serializable
+object ScreenAccrual
