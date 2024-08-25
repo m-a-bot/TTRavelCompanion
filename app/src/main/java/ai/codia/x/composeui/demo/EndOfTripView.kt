@@ -70,13 +70,31 @@ import kotlinx.coroutines.launch
 @OptIn(DelicateCoroutinesApi::class)
 @Composable
 fun EndOfTripView(navController: NavHostController?) {
+    var showPopup by remember { mutableStateOf(true) }
+
     // Box-196:563-7 Ответ
+    Box(Modifier
+        .offset(0.dp, 420.dp))
+    {
+        BlurBackgroundPopup(showPopup)
+    }
     Box(
         contentAlignment = Alignment.TopStart,
+//        modifier = Modifier
+//            .size(390.dp, 844.dp)
+//            .clip(RoundedCornerShape(40.dp)),
+
         modifier = Modifier
-            .background(Color(0xffffffff), RoundedCornerShape(40.dp))
-            .size(390.dp, 844.dp)
-            .clip(RoundedCornerShape(40.dp)),
+            .fillMaxSize()
+            .let { modifier ->
+                if (showPopup) {
+                    // Применяем размытие при открытии Popup
+                    modifier.blur(16.dp)
+                } else {
+                    modifier
+                }
+            }
+            .background(Color(0xffffffff)),
     ) {
 
         // Image-196:566-map1 2
@@ -359,62 +377,103 @@ fun EndOfTripView(navController: NavHostController?) {
 //
 //        navController?.navigate(ScreenDriversResponse)
 //    }
+
 }
 
-@Preview(showBackground = true)
+
 @Composable
-fun BlurBackgroundPopupExample() {
-    var showPopup by remember { mutableStateOf(true) }
+fun BlurBackgroundPopup(showPopup: Boolean) {
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        // Содержимое основного экрана
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .let { modifier ->
-                    if (showPopup) {
-                        // Применяем размытие при открытии Popup
-                        modifier.blur(16.dp)
-                    } else {
-                        modifier
-                    }
-                }
-                .background(Color.LightGray),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "Main Content",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Button(onClick = { showPopup = true }) {
-                Text(text = "Show Popup")
-            }
-        }
-
+    Box(modifier = Modifier.fillMaxSize())
+    {
         // Всплывающее окно
         if (showPopup) {
             Popup(
                 alignment = Alignment.Center,
-                properties = PopupProperties(focusable = true)
+                properties = PopupProperties(focusable = true),
             ) {
-                Box(
+                Column(
                     modifier = Modifier
-                        .size(200.dp)
-                        .background(Color.White)
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
+                        .align(Alignment.TopStart)
+                        .offset(x = 0.dp, y = 30.dp)
+                        .size(360.dp, 230.dp),
                 ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(text = "Popup Content", fontSize = 18.sp)
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Button(onClick = { showPopup = false }) {
-                            Text(text = "Close")
+                    // Image-303:406-directions_bus
+                    Image(
+                        painter = painterResource(id = R.drawable.image12_303406),
+                        contentDescription = null,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .offset(x = 156.dp, y = 0.dp)
+                            .size(72.dp, 72.dp),
+                    )
+                    // Text-301:398-Желаете достроить маршрут? Интеграция с маршрутами города
+                    Text(
+                        modifier = Modifier
+                            .offset(x = 6.dp, y = 0.dp)
+                            .size(378.dp, 35.dp),
+                        text = "Желаете достроить маршрут?",
+                        color = Color(0xff000000),
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Normal,
+                        textAlign = TextAlign.Center,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        modifier = Modifier
+                            .offset(x = 6.dp, y = 0.dp)
+                            .size(378.dp, 35.dp),
+                        text = "Интеграция с маршрутами города",
+                        color = Color.Gray,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Normal,
+                        textAlign = TextAlign.Center,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+
+                    // Box-301:392-10 accept
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Button(
+                            onClick = {
+//                                navController?.navigate(ScreenPassengerView(
+//                                34
+//                            ))
+                            },
+                            modifier = Modifier
+                                .size(120.dp, 35.dp),
+                            contentPadding = PaddingValues(0.dp),
+                            shape = RoundedCornerShape(5.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(52, 168, 83),
+                            )
+                        )
+                        {
+                            Text("Подтвердить")
                         }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Button(
+                            onClick = {
+//                                navController?.navigate(ScreenPassengerView(
+//                                34
+//                            ))
+                            },
+                            modifier = Modifier
+                                .size(120.dp, 35.dp),
+                            contentPadding = PaddingValues(0.dp),
+                            shape = RoundedCornerShape(5.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.LightGray,
+                            )
+                        )
+                        {
+                            Text("Отменить")
+                        }
+
                     }
                 }
             }
@@ -422,7 +481,7 @@ fun BlurBackgroundPopupExample() {
     }
 }
 
-
+@Preview(showBackground = true)
 @Composable
 fun EndOfTripViewPreview() {
     CodiaDemoComposeUITheme {
